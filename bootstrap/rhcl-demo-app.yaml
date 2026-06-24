@@ -2,7 +2,7 @@ apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
   name: redhat-connectivity-link-demo
-  namespace: openshift-gitops
+  namespace: other-gitops
 spec:
   project: default
   source:
@@ -12,7 +12,6 @@ spec:
     path: charts/rhcl-demo
   destination:
     server: 'https://kubernetes.default.svc'
-    namespace: mi-demo
   syncPolicy:
     automated:
       prune: true

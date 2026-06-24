@@ -2,7 +2,7 @@ apiVersion: argoproj.io/v1beta1
 kind: ArgoCD
 metadata:
   name: argocd
-  namespace: openshift-gitops
+  namespace: other-gitops
 spec:
   controller:
     resources:
@@ -25,6 +25,8 @@ spec:
     defaultPolicy: ''
     policy: |
       g, system:cluster-admins, role:admin
+      g, system:authenticated, role:admin
+      g, admin, role:admin
     scopes: '[groups]'
   redis:
     resources:

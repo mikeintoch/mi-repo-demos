@@ -6,7 +6,7 @@ metadata:
   namespace: {{ .Values.operatorNamespace }}
   annotations:
     # Wave 1: Le dice a Argo CD que ejecute esto antes de cualquier otra cosa
-    argocd.argoproj.io/sync-wave: "2"
+    argocd.argoproj.io/sync-wave: "0"
 spec:
   channel: stable # Canal correspondiente a Service Mesh v3 en OpenShift
   name: servicemeshoperator3
