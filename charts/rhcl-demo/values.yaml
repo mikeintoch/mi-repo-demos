@@ -1,0 +1,36 @@
+# Configuración global del entorno de la demo
+clusterDomain: apps.cluster-dclgk.dynamic2.redhatworkshops.io # El dominio base de tu OpenShift
+
+# Namespace donde se instalarán los operadores
+operatorNamespace: openshift-operators 
+
+# Red Hat OpenShift Service Mesh 3.x (Basado en Sail Operator)
+servicemesh:
+  controlPlaneName: default
+  namespace: istio-system
+  version: v1.24
+  startingCSV: servicemeshoperator3.v3.2.0
+
+# Configuration de Kuadrant
+kuadrant:
+  name: kuadrant
+  namespace: kuadrant-system
+  controlPlaneName: kuadrant-control-plane
+  version: v1.0.0
+  startingCSV: rhcl-operator.v1.2.1
+
+# Configuración de Gateway API e Infraestructura de Red
+gateway:
+  name: external
+  className: istio
+  namespace: api-gateway
+
+# Microservicio de prueba para la Demo (Camel Service)
+apiSample:
+  name: camel-service
+  namespace: api-demo
+  image: quay.io/mdelgadi/camel-service
+  replicas: 2
+  # Añadimos los puertos aquí para que sea dinámico
+  servicePort: 80     # El puerto que expone el Service hacia la malla
+  containerPort: 8080 # El puerto real donde escucha tu aplicación/contenedor
