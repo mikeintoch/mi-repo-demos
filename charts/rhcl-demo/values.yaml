@@ -9,7 +9,7 @@ servicemesh:
   controlPlaneName: default
   namespace: istio-system
   version: v1.24
-  startingCSV: servicemeshoperator3.v3.2.0
+  startingCSV: servicemeshoperator3.v3.3.4
 
 # Configuration de Kuadrant
 kuadrant:
