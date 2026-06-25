@@ -6,5 +6,5 @@ metadata:
     # Wave 2: Argo CD esperará a que el operador (Wave 1) esté listo antes de aplicar esto
     argocd.argoproj.io/sync-wave: "1"
 spec:
-  namespace: {{ .Values.servicemesh.namespace }}
+  namespace: {{ .Values.servicemesh.controlPlaneNamespace }}
   profile: ambient
