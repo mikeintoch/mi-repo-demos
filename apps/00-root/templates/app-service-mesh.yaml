@@ -15,10 +15,6 @@ ignoreDifferences:
       kind: Subscription
       jsonPointers:
         - /spec/startingCSV
-    
-    # ==========================================
-    # 🚀 EXCEPCIONES PARA ZTUNNEL
-    # ==========================================
     - group: sailoperator.io
       kind: Ztunnel
       jsonPointers:
@@ -28,10 +24,6 @@ ignoreDifferences:
         - /spec/image 
         # Ignora el estatus de salud del DaemonSet que cambia con los reinicios de nodos
         - /status
-
-    # ==========================================
-    # 🚀 EXCEPCIONES PARA ISTIO CNI
-    # ==========================================
     - group: sailoperator.io
       kind: IstioCNI
       jsonPointers:
