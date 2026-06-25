@@ -5,7 +5,7 @@ metadata:
   namespace: {{ .Values.gitops.namespace }}
 spec:
   project: default
-ignoreDifferences:
+  ignoreDifferences:
     - group: sailoperator.io
       kind: Istio
       jsonPointers:
@@ -30,7 +30,7 @@ ignoreDifferences:
         - /metadata/finalizers
         - /metadata/labels
         # Parches de seguridad de red específicos que OpenShift inyecta en vivo
-        - /spec/cni 
+        - /spec/cni
         - /status
   source:
     repoURL: {{ .Values.repoURL }}
