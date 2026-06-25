@@ -9,3 +9,6 @@ servicemesh:
 
 kuadrant:
   namespace: kuadrant-system
+
+apiSample:
+  namespace: api-sample

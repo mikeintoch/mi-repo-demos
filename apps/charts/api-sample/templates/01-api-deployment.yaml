@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ .Values.apiSample.name }}
+  namespace: {{ .Values.apiSample.namespace }}
+  annotations:
+    argocd.argoproj.io/sync-wave: "1"
+spec:
+  replicas: {{ .Values.apiSample.replicas }}
+  selector:
+    matchLabels:
+      app: {{ .Values.apiSample.name }}
+  template:
+    metadata:
+      labels:
+        app: {{ .Values.apiSample.name }}
+    spec:
+      containers:
+      - name: api
+        image: {{ .Values.apiSample.image }}
+        ports:
+        # Aquí mapeamos el puerto 8080 del contenedor usando la variable
+        - containerPort: {{ .Values.apiSample.containerPort }}

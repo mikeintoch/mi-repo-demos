@@ -1,0 +1,19 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: api-sample
+  namespace: other-gitops
+spec:
+  project: default
+  source:
+    repoURL: {{ .Values.repoURL }}
+    targetRevision: {{ .Values.targetRevision }}
+    path: apps/charts/api-sample
+  destination:
+    server: 'https://kubernetes.default.svc'
+    namespace: {{ .Values.apiSample.namespace }}
+  syncPolicy:
+    automated: { prune: true, selfHeal: true }
+    syncOptions:
+      - CreateNamespace=true
+      - SkipDryRunOnMissingResource=true

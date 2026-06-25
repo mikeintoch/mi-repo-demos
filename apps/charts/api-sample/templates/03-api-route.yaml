@@ -1,0 +1,21 @@
+apiVersion: route.openshift.io/v1
+kind: Route
+metadata:
+  name: {{ .Values.apiSample.name }}-route
+  namespace: {{ .Values.apiSample.namespace }}
+  annotations:
+    # Wave 6: Se crea en paralelo con el despliegue de la API y el Servicio
+    argocd.argoproj.io/sync-wave: "3"
+spec:
+  # La URL final calculada dinámicamente (ej: api.apps.mi-cluster.com)
+  host: camel-service.{{ .Values.clusterDomain }}
+  to:
+    kind: Service
+    name: {{ .Values.apiSample.name }}
+    weight: 100
+  port:
+    # Apuntamos al puerto expuesto por el servicio hacia la malla
+    targetPort: http
+  tls:
+    termination: edge                   # Terminación TLS en el Router de OpenShift (Edge)
+    insecureEdgeTerminationPolicy: Redirect # Redirección automática de HTTP a HTTPS (Redirect)
