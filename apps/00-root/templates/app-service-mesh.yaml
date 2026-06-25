@@ -5,11 +5,41 @@ metadata:
   namespace: {{ .Values.gitops.namespace }}
 spec:
   project: default
-  ignoreDifferences:
+ignoreDifferences:
     - group: sailoperator.io
-      kind: ZTunnel
+      kind: Istio
       jsonPointers:
-        - /spec/profile
+        - /metadata/labels
+        - /metadata/finalizers
+    - group: operators.coreos.com
+      kind: Subscription
+      jsonPointers:
+        - /spec/startingCSV
+    
+    # ==========================================
+    # 🚀 EXCEPCIONES PARA ZTUNNEL
+    # ==========================================
+    - group: sailoperator.io
+      kind: Ztunnel
+      jsonPointers:
+        - /metadata/finalizers
+        - /metadata/labels
+        # El operador muta las imágenes dinámicamente según la arquitectura del nodo (x86, ARM, etc.)
+        - /spec/image 
+        # Ignora el estatus de salud del DaemonSet que cambia con los reinicios de nodos
+        - /status
+
+    # ==========================================
+    # 🚀 EXCEPCIONES PARA ISTIO CNI
+    # ==========================================
+    - group: sailoperator.io
+      kind: IstioCNI
+      jsonPointers:
+        - /metadata/finalizers
+        - /metadata/labels
+        # Parches de seguridad de red específicos que OpenShift inyecta en vivo
+        - /spec/cni 
+        - /status
   source:
     repoURL: {{ .Values.repoURL }}
     targetRevision: {{ .Values.targetRevision }}
