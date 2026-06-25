@@ -5,6 +5,16 @@ metadata:
   namespace: {{ .Values.gitops.namespace }}
 spec:
   project: default
+  ignoreDifferences:
+    - group: kuadrant.io
+      kind: Kuadrant
+      jsonPointers:
+        - /metadata/finalizers
+    # Muy importante si manejas Gateways en esta capa
+    - group: gateway.networking.k8s.io
+      kind: Gateway
+      jsonPointers:
+        - /status
   source:
     repoURL: {{ .Values.repoURL }}
     targetRevision: {{ .Values.targetRevision }}
