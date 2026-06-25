@@ -4,7 +4,7 @@ targetRevision: HEAD
 gitops:
   namespace: other-gitops
 
-serviceMesh:
+servicemesh:
   namespace: istio-system
 
 kuadrant:
