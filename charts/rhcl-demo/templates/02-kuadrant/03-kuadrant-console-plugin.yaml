@@ -11,6 +11,7 @@ metadata:
   name: kuadrant-console-plugin
   annotations:
     argocd.argoproj.io/sync-wave: "1"
+    console.openshift.io/use-integration-flow: "true"
 spec:
   backend:
     service:
