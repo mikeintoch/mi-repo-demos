@@ -1,0 +1,14 @@
+---
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: {{ .Values.apiSample.namespace }}
+  labels:
+    kubernetes.io/metadata.name: {{ .Values.apiSample.namespace }}
+    istio-discovery: enabled
+    argocd.argoproj.io/managed-by: other-gitops
+  annotations:
+    openshift.io/display-name: Service Mesh System Namespace
+    # Wave 1: Le dice a Argo CD que ejecute esto antes de cualquier otra cosa
+    argocd.argoproj.io/sync-wave: "0"
+...
