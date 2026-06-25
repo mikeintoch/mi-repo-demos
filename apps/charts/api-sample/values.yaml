@@ -1,6 +1,6 @@
 apiSample:
   name: camel-service
-  namespace: api-demo
+  namespace: api-sample
   image: quay.io/mdelgadi/camel-service
   replicas: 1
   # Añadimos los puertos aquí para que sea dinámico
