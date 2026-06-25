@@ -17,7 +17,7 @@ kuadrant:
   namespace: kuadrant-system
   controlPlaneName: kuadrant-control-plane
   version: v1.0.0
-  startingCSV: rhcl-operator.v1.2.1
+  startingCSV: rhcl-operator.v1.4.0
 
 # Configuración de Gateway API e Infraestructura de Red
 gateway:
