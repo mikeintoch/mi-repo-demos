@@ -2,7 +2,7 @@ apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
   name: api-sample
-  namespace: other-gitops
+  namespace: {{ .Values.gitops.namespace }}
 spec:
   project: default
   source:
