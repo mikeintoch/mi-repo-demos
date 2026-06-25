@@ -1,0 +1,15 @@
+---
+apiVersion: operators.coreos.com/v1alpha1
+kind: Subscription
+metadata:
+  name: servicemeshoperator3
+  namespace: {{ .Values.serviceMesh.operatorNamespace }}
+  annotations:
+    # Wave 1: Le dice a Argo CD que ejecute esto antes de cualquier otra cosa
+    argocd.argoproj.io/sync-wave: "0"
+spec:
+  channel: stable # Canal correspondiente a Service Mesh v3 en OpenShift
+  name: servicemeshoperator3
+  source: redhat-operators
+  sourceNamespace: openshift-marketplace
+...

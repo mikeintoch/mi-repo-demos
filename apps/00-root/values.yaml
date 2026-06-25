@@ -1,0 +1,11 @@
+repoURL: 'https://github.com/TU_USUARIO/mi-repo-demos.git'
+targetRevision: HEAD
+
+gitops:
+  namespace: other-gitops
+
+serviceMesh:
+  namespace: istio-system
+
+kuadrant:
+  namespace: kuadrant-system

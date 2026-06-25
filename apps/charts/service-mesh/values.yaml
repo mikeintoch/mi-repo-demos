@@ -1,0 +1,5 @@
+servicemesh:
+  operatorNamespace: openshift-operators
+  controlPlaneNamespace: istio-system
+  controlPlaneName: default
+  version: v1.24

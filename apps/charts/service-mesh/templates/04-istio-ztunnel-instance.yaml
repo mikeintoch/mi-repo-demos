@@ -1,0 +1,10 @@
+apiVersion: sailoperator.io/v1
+kind: ZTunnel
+metadata:
+  name: {{ .Values.servicemesh.controlPlaneName }}
+  annotations:
+    # Wave 2: Argo CD esperará a que el operador (Wave 1) esté listo antes de aplicar esto
+    argocd.argoproj.io/sync-wave: "1"
+spec:
+  namespace: {{ .Values.servicemesh.namespace }}
+  profile: ambient

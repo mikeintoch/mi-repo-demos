@@ -1,0 +1,23 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: service-mesh
+  namespace: {{ .Values.gitops.namespace }}
+spec:
+  project: default
+  ignoreDifferences:
+    - group: sailoperator.io
+      kind: ZTunnel
+      jsonPointers:
+        - /spec/profile
+  source:
+    repoURL: {{ .Values.repoURL }}
+    targetRevision: {{ .Values.targetRevision }}
+    path: apps/charts/service-mesh
+  destination:
+    server: 'https://kubernetes.default.svc'
+    namespace: {{ .Values.serviceMesh.namespace }}
+  syncPolicy:
+    automated: { prune: true, selfHeal: true }
+    syncOptions:
+      - CreateNamespace=true
