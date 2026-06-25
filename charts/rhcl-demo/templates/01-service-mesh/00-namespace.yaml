@@ -10,5 +10,6 @@ metadata:
   annotations:
     openshift.io/display-name: Service Mesh System Namespace
     # Wave 1: Le dice a Argo CD que ejecute esto antes de cualquier otra cosa
-    argocd.argoproj.io/sync-wave: "0"
+    argocd.argoproj.io/hook: PreSync
+    argocd.argoproj.io/sync-wave: "-1"
 ...
