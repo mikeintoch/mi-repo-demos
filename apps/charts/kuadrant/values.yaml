@@ -1,0 +1,4 @@
+kuadrant:
+  operatorNamespace: openshift-operators
+  namespace: kuadrant-system
+  name: kuadrant

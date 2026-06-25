@@ -1,0 +1,12 @@
+---
+kind: Kuadrant
+apiVersion: kuadrant.io/v1beta1
+metadata:
+ name: {{ .Values.kuadrant.name }}
+ namespace: {{ .Values.kuadrant.namespace }}
+ annotations:
+    argocd.argoproj.io/sync-wave: "1"
+spec:
+  observability:
+    enabled: true
+...
