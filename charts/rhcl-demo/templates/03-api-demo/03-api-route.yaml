@@ -8,7 +8,7 @@ metadata:
     argocd.argoproj.io/sync-wave: "3"
 spec:
   # La URL final calculada dinámicamente (ej: api.apps.mi-cluster.com)
-  host: api.{{ .Values.dns.domainName }}
+  host: api.{{ .Values.clusterDomain }}
   to:
     kind: Service
     name: {{ .Values.apiSample.name }}
