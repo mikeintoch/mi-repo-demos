@@ -12,9 +12,5 @@ data:
   dynamic-plugins.yaml: |
     includes:
       - dynamic-plugins.default.yaml
-    plugins:
-      - package: ./dynamic-plugins/dist/backstage-plugin-catalog-backend-module-github
-        disabled: false
-      - package: ./dynamic-plugins/dist/backstage-community-plugin-rbac
-        disabled: false
+    plugins {}
 ...
