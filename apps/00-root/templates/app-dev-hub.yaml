@@ -2,7 +2,7 @@ apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
   name: developer-hub
-  namespace: {{ .Values.devhub.namespace }}
+  namespace: {{ .Values.rhdh.namespace }}
 spec:
   project: default
   source:
