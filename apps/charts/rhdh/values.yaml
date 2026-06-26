@@ -1,0 +1,5 @@
+rhdh:
+  namespace: rhdh
+  name: rhdh
+
+clusterDomain: apps.cluster-swxvh.dynamic2.redhatworkshops.io
