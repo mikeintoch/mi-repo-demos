@@ -8,6 +8,8 @@ metadata:
     argocd.argoproj.io/sync-wave: "1"
 data:
   app-config.yaml: |
+    auth:
+      environment: development
     app:
       title: Portal de Desarrolladores - RHCL Demo
       baseUrl: https://rhdh.{{ .Values.clusterDomain }}
@@ -15,10 +17,9 @@ data:
     backend:
       baseUrl: https://rhdh.{{ .Values.clusterDomain }}
       auth:
-        externalAccess:
         - type: static
           options:
             subject: api-clients
-            secret: ${BACKEND_SECRET}
+            token: ${BACKEND_SECRET}
       cors:
         origin: https://rhdh.{{ .Values.clusterDomain }}
