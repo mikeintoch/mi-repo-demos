@@ -12,6 +12,7 @@ spec:
   database:
     enableLocalDb: true
   application:
+    dynamicPluginsConfigMapName: dynamic-plugins-rhdh
     appConfig:
       configMaps:
         - name: app-config-rhdh
@@ -22,7 +23,6 @@ spec:
           value: "0"
       secrets:
         - name: rhdh-secrets
-    dynamicPluginsConfigMapName: dynamic-plugins-rhdh
     replicas: 1
     route:
       enabled: true
