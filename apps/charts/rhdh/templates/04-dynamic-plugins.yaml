@@ -13,8 +13,8 @@ data:
     includes:
       - dynamic-plugins.default.yaml
     plugins:
-      - package: oci://registry.access.redhat.com/rhdh/red-hat-developer-hub-backstage-plugin-lightspeed:{{inherit}}
+      - package: oci://registry.access.redhat.com/rhdh/red-hat-developer-hub-backstage-plugin-lightspeed
         disabled: true
-      - package: oci://registry.access.redhat.com/rhdh/red-hat-developer-hub-backstage-plugin-lightspeed-backend:{{inherit}}
+      - package: oci://registry.access.redhat.com/rhdh/red-hat-developer-hub-backstage-plugin-lightspeed-backend
         disabled: true
 ...
