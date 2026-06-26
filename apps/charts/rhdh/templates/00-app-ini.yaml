@@ -3,7 +3,7 @@ apiVersion: v1
 kind: ConfigMap
 metadata:
   name: app-config-rhdh
-  namespace: rhdh
+  namespace: {{ .Values.rhdh.namespace }}
 data:
   app-config.yaml: |
     app:
