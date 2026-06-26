@@ -3,3 +3,8 @@ rhdh:
   name: rhdh
 
 clusterDomain: apps.cluster-swxvh.dynamic2.redhatworkshops.io
+
+keycloak:
+  name: keycloak
+  namespace: keycloak
+  realmName: backstage

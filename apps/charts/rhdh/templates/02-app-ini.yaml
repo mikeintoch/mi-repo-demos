@@ -21,3 +21,5 @@ data:
       baseUrl: https://rhdh.{{ .Values.clusterDomain }}
       cors:
         origin: https://rhdh.{{ .Values.clusterDomain }}
+
+    
