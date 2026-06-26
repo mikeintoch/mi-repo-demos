@@ -1,6 +1,6 @@
 apiVersion: v2
 name: rhdh-component
-description: Helm Chart para desplegar Red Hat Developer Hub
+description: Helm Chart para desplegar Red Hat Developer Hub 1.10 con el plugin de Kuadrant
 type: application
 version: 1.0.0
-appVersion: "1.0.0"
+appVersion: "1.10.0"

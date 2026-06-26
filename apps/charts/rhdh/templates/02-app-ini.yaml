@@ -9,5 +9,12 @@ metadata:
 data:
   app-config.yaml: |
     app:
-      title: Red Hat Developer Hub
+      title: Portal de Desarrolladores - RHCL Demo
       baseUrl: https://rhdh.{{ .Values.clusterDomain }}
+    backend:
+      auth:
+        keys:
+          - secret: ${BACKEND_SECRET}
+      baseUrl: https://rhdh.{{ .Values.clusterDomain }}
+      cors:
+        origin: https://rhdh.{{ .Values.clusterDomain }}
