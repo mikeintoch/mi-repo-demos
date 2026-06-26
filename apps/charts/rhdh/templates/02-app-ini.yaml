@@ -11,12 +11,14 @@ data:
     app:
       title: Portal de Desarrolladores - RHCL Demo
       baseUrl: https://rhdh.{{ .Values.clusterDomain }}
+
     backend:
-      auth:
-        - type: legacy
-          options:
-            subject: legacy-default-config
-            secret: ${BACKEND_SECRET}
       baseUrl: https://rhdh.{{ .Values.clusterDomain }}
+      auth:
+        externalAccess:
+        - type: static
+          options:
+            subject: api-clients
+            secret: ${BACKEND_SECRET}
       cors:
         origin: https://rhdh.{{ .Values.clusterDomain }}
