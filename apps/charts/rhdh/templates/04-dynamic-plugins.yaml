@@ -323,4 +323,48 @@ data:
                           - hasAnnotation: jira/project-key
       - package: oci://ghcr.io/redhat-developer/rhdh-plugin-export-overlays/red-hat-developer-hub-backstage-plugin-scorecard-backend:bs_1.42.5__1.0.0!red-hat-developer-hub-backstage-plugin-scorecard-backend
         disabled: false
+
+        # Kuadrant Backend
+        - package: "@kuadrant/kuadrant-backstage-plugin-backend-dynamic@v0.1.0"
+          integrity: sha512-+iz5a/38ZB/phehlHMcbM79S/bMZwslcxi+lnG5Tb2InlWtumloFK7OzZk11s0/CjJPytF3CipOz4QpFHQ09qw==
+          disabled: false
+
+        # Kuadrant Frontend
+        - package: "@kuadrant/kuadrant-backstage-plugin-frontend@v0.1.0"
+          integrity: sha512-v1AgCXqouFlpINPWUnNDfuayO1krkRY5XJLPsne4mzBiKp5dDY993Zu+YdRVHsrrIbuNoRUcotWOZqjLwuLWuw==
+          disabled: false
+          pluginConfig:
+            dynamicPlugins:
+              frontend:
+                internal.plugin-kuadrant:
+                  appIcons:
+                    - name: kuadrantIcon
+                      importName: KuadrantIcon
+                  dynamicRoutes:
+                    - path: /kuadrant
+                      importName: KuadrantPage
+                      menuItem:
+                        icon: kuadrantIcon
+                        text: Kuadrant
+                    - path: /kuadrant/api-products/:namespace/:name
+                      importName: ApiProductDetailPage
+                    - path: /kuadrant/api-keys/:namespace/:name
+                      importName: ApiKeyDetailPage
+                  mountPoints:
+                    - mountPoint: entity.page.api/cards
+                      importName: EntityKuadrantApiKeyManagementTab
+                      config:
+                        layout:
+                          gridColumn: "1 / -1"
+                        if:
+                          allOf:
+                            - isKind: api
+                    - mountPoint: entity.page.api/cards
+                      importName: EntityKuadrantApiProductInfoContent
+                      config:
+                        layout:
+                          gridColumn: "1 / -1"
+                        if:
+                          allOf:
+                            - isKind: api
 ...
