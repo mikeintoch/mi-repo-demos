@@ -249,44 +249,44 @@ data:
                         link: https://quay.{{ .Values.clusterDomain }}
 
       # Orchestrator plugins
-      - package: 'oci://registry.access.redhat.com/rhdh/red-hat-developer-hub-backstage-plugin-orchestrator:{{ "{{" }}inherit{{ "}}" }}'
-        disabled: false
-        pluginConfig:
-          dynamicPlugins:
-            frontend:
-              red-hat-developer-hub.backstage-plugin-orchestrator:
-                appIcons:
-                - importName: OrchestratorIcon
-                  name: orchestratorIcon
-                dynamicRoutes:
-                - importName: OrchestratorPage
-                  menuItem:
-                    icon: orchestratorIcon
-                    text: Orchestrator
-                    textKey: menuItem.orchestrator
-                  path: /orchestrator
-                entityTabs:
-                - path: /workflows
-                  title: Workflows
-                  titleKey: catalog.entityPage.workflows.title
-                  mountPoint: entity.page.workflows
-                mountPoints:
-                - mountPoint: entity.page.workflows/cards
-                  importName: OrchestratorCatalogTab
-                  config:
-                    layout:
-                      gridColumn: 1 / -1
-                    if:
-                      anyOf:
-                      - IsOrchestratorCatalogTabAvailable
-      - package: 'oci://registry.access.redhat.com/rhdh/red-hat-developer-hub-backstage-plugin-orchestrator-backend:{{ "{{" }}inherit{{ "}}" }}'
-        disabled: false
-        dependencies:
-          - ref: sonataflow
-      - package: 'oci://registry.access.redhat.com/rhdh/red-hat-developer-hub-backstage-plugin-scaffolder-backend-module-orchestrator:{{ "{{" }}inherit{{ "}}" }}'
-        disabled: false
-      - package: 'oci://registry.access.redhat.com/rhdh/red-hat-developer-hub-backstage-plugin-orchestrator-form-widgets:{{ "{{" }}inherit{{ "}}" }}'
-        disabled: false
+      #- package: 'oci://registry.access.redhat.com/rhdh/red-hat-developer-hub-backstage-plugin-orchestrator:{{ "{{" }}inherit{{ "}}" }}'
+      #  disabled: false
+      #  pluginConfig:
+      #    dynamicPlugins:
+      #      frontend:
+      #        red-hat-developer-hub.backstage-plugin-orchestrator:
+      #          appIcons:
+      #          - importName: OrchestratorIcon
+      #            name: orchestratorIcon
+      #          dynamicRoutes:
+      #          - importName: OrchestratorPage
+      #            menuItem:
+      #              icon: orchestratorIcon
+      #              text: Orchestrator
+      #              textKey: menuItem.orchestrator
+      #            path: /orchestrator
+      #          entityTabs:
+      #          - path: /workflows
+      #            title: Workflows
+      #            titleKey: catalog.entityPage.workflows.title
+      #            mountPoint: entity.page.workflows
+      #          mountPoints:
+      #          - mountPoint: entity.page.workflows/cards
+      #            importName: OrchestratorCatalogTab
+      #            config:
+      #              layout:
+      #                gridColumn: 1 / -1
+      #              if:
+      #                anyOf:
+      #                - IsOrchestratorCatalogTabAvailable
+      #- package: 'oci://registry.access.redhat.com/rhdh/red-hat-developer-hub-backstage-plugin-orchestrator-backend:{{ "{{" }}inherit{{ "}}" }}'
+      #  disabled: false
+      #  dependencies:
+      #    - ref: sonataflow
+      #- package: 'oci://registry.access.redhat.com/rhdh/red-hat-developer-hub-backstage-plugin-scaffolder-backend-module-orchestrator:{{ "{{" }}inherit{{ "}}" }}'
+      #  disabled: false
+      #- package: 'oci://registry.access.redhat.com/rhdh/red-hat-developer-hub-backstage-plugin-orchestrator-form-widgets:{{ "{{" }}inherit{{ "}}" }}'
+      #  disabled: false
 
       # Notification plugins (required by orchestrator workflows)
       - package: ./dynamic-plugins/dist/backstage-plugin-notifications
