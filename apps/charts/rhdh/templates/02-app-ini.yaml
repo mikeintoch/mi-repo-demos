@@ -38,7 +38,7 @@ data:
     
     catalog:
       rules:
-        - allow: [Component, System, API, Resource, Location, Template, Domain]
+        - allow: [Component, System, API, Resource, Location, Template, Domain, Group, User]
       providers:
         keycloakOrg:
           default:
@@ -51,4 +51,7 @@ data:
               frequency: { minutes: 2}
               timeout: { minutes: 1}
               initialDelay: { seconds: 15 }
+            signIn:
+              resolvers:
+                - resolver: emailMatchingUserEntityProfileEmail
     
