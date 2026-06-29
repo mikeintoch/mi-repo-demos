@@ -8,4 +8,4 @@ apiSample:
   namespace: api-sample
   servicePort: 80 
 
-clusterDomain: apps.cluster-swxvh.dynamic2.redhatworkshops.io
+clusterDomain: apps.cluster-pmbdz.dynamic2.redhatworkshops.io

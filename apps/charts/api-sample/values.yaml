@@ -7,4 +7,4 @@ apiSample:
   servicePort: 80     # El puerto que expone el Service hacia la malla
   containerPort: 8080 # El puerto real donde escucha tu aplicación/contenedor
 
-clusterDomain: apps.cluster-swxvh.dynamic2.redhatworkshops.io
+clusterDomain: apps.cluster-pmbdz.dynamic2.redhatworkshops.io
