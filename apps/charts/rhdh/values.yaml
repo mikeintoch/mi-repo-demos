@@ -8,3 +8,4 @@ keycloak:
   name: keycloak
   namespace: keycloak
   realmName: backstage
+  clientId: backstage
