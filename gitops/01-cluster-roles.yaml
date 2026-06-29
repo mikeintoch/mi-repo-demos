@@ -1,0 +1,16 @@
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRoleBinding
+metadata:
+  name: openshift-gitops-cnt-link-admin
+  annotations:
+    argocd.argoproj.io/sync-wave: "0"
+roleRef:
+  apiGroup: rbac.authorization.k8s.io
+  kind: ClusterRole
+  name: cluster-admin # Mantiene el permiso de administrador global
+subjects:
+- kind: ServiceAccount
+  # 1. CAMBIADO: El nombre exacto del controlador que reportó el error
+  name: argocd-argocd-application-controller 
+  # 2. CAMBIADO: El namespace donde vive tu instancia de Argo CD
+  namespace: other-gitops
