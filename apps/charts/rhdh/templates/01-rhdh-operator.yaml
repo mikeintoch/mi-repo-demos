@@ -7,7 +7,7 @@ metadata:
   annotations:
     argocd.argoproj.io/sync-wave: "0"
   name: {{ .Values.rhdh.name }}
-  namespace: rhdh-operator
+  namespace: rhdh
 spec:
   channel: fast
   installPlanApproval: Automatic

@@ -5,6 +5,7 @@ metadata:
  name: {{ .Values.gateway.name }}
  annotations:
     networking.istio.io/service-type: ClusterIP
+    argocd.argoproj.io/sync-wave: "3"
  namespace: {{ .Values.gateway.namespace }}
 spec:
  gatewayClassName: {{ .Values.gateway.className }}
