@@ -10,9 +10,7 @@ data:
   app-config.yaml: |
     permission:
       enabled: true
-    auth:
-      environment: development
-      providers: {}
+            
     app:
       title: Portal de Desarrolladores - RHCL Demo
       baseUrl: https://rhdh.{{ .Values.clusterDomain }}
@@ -22,4 +20,32 @@ data:
       cors:
         origin: https://rhdh.{{ .Values.clusterDomain }}
 
+    auth:
+      environment: production
+      providers:
+        oidc:
+          production:
+            prompt: login
+            metadataUrl: https://sso.{{ .Values.clusterDomain }}/realms/{{ .Values.keycloak.realmName }}/.well-known/openid-configuration
+            clientId: ${AUTHENTICATION_OIDC_CLIENT_ID}
+            clientSecret: ${AUTHENTICATION_OIDC_CLIENT_SECRET}
+            signIn:
+              resolvers:
+                - resolver: preferredUsernameMatchingUserEntityName
+    
+    catalog:
+      rules:
+        - allow: [Component, System, API, Resource, Location, Template, Domain]
+      providers:
+        keycloakOrg:
+          default:
+            baseUrl: https://sso.{{ .Values.clusterDomain }}/
+            realm: {{ .Values.keycloak.realmName }}
+            loginRealm: {{ .Values.keycloak.realmName }}
+            clientId: ${AUTHENTICATION_OIDC_CLIENT_ID}
+            clientSecret: ${AUTHENTICATION_OIDC_CLIENT_SECRET}
+            schedule:
+              frequency: { minutes: 2}
+              timeout: { minutes: 1}
+              initialDelay: { seconds: 15 }
     

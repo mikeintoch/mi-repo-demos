@@ -9,3 +9,4 @@ keycloak:
   namespace: keycloak
   realmName: backstage
   clientId: backstage
+  secret: hj6tBlXDh4jvSDIHEXmZFQpgJAW4dMZw
