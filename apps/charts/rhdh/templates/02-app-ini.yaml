@@ -79,4 +79,4 @@ data:
           plural: routes
         - group: sonataflow.org
           apiVersion: v1alpha8
-          plral: sonataflows
+          plural: sonataflows
