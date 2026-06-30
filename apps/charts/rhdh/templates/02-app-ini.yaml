@@ -10,9 +10,9 @@ data:
   app-config.yaml: |
     permission:
       enabled: true
-    rbac:
-      policies-csv-file: /opt/app-root/etc/rbac-policy.csv
-      policyFileReload: true
+      rbac:
+        policies-csv-file: /opt/app-root/etc/rbac-policy.csv
+        policyFileReload: true
             
     app:
       title: Portal de Desarrolladores - RHCL Demo
