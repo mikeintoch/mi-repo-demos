@@ -69,8 +69,7 @@ data:
       customResources:
         - group: tekton.dev
           apiVersion: v1
-        - group: pipelineruns
-          apiVersion: v1
+          plural: pipelineruns
         - group: tekton.dev
           apiVersion: v1
           plural: taskruns
@@ -78,5 +77,5 @@ data:
           apiVersion: v1
           plural: routes
         - group: sonataflow.org
-          apiVersion: v1alpha8
+          apiVersion: v1alpha08
           plural: sonataflows
