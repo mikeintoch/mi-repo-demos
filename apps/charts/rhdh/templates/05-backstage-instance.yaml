@@ -17,6 +17,10 @@ spec:
       configMaps:
         - name: app-config-rhdh
       mountPath: /opt/app-root/src
+    extraFiles:
+      mountPath: /opt/app-root/src
+      configMaps:
+        - name: rbac-policies
     extraEnvs:
       envs:
         - name: NODE_TLS_REJECT_UNAUTHORIZED
@@ -29,3 +33,9 @@ spec:
       enabled: true
       host: rhdh.{{ .Values.clusterDomain }}
       subdomain: {{ .Values.clusterDomain }}
+  deployment:
+    patch:
+      spec:
+        template:
+          spec:
+            automountServiceAccountToken: true

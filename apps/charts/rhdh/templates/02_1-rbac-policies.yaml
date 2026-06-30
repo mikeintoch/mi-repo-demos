@@ -1,0 +1,58 @@
+---
+kind: ConfigMap
+apiVersion: v1
+metadata:
+  name: rbac-policies
+  namespace: {{ .Values.rhdh.namespace }}
+  annotations:
+    argocd.argoproj.io/sync-wave: "1"
+data:
+  rbac-policy.csv: |-
+    # api consumer: browses apis, requests access
+    p, role:default/api-consumer, kuadrant.apiproduct.read.all, read, allow
+    p, role:default/api-consumer, kuadrant.apiproduct.list, read, allow
+    p, role:default/api-consumer, kuadrant.apikey.create, create, allow, apiproduct:*/*
+    p, role:default/api-consumer, kuadrant.apikey.read.own, read, allow
+    p, role:default/api-consumer, kuadrant.apikey.update.own, update, allow
+    p, role:default/api-consumer, kuadrant.apikey.delete.own, delete, allow
+    p, role:default/api-consumer, catalog.entity.read, read, allow
+
+    # api owner: publishes apis they own, approves requests for their apis
+    p, role:default/api-owner, kuadrant.planpolicy.read, read, allow
+    p, role:default/api-owner, kuadrant.planpolicy.list, read, allow
+    p, role:default/api-owner, kuadrant.apiproduct.create, create, allow
+    p, role:default/api-owner, kuadrant.apiproduct.read.all, read, allow
+    p, role:default/api-owner, kuadrant.apiproduct.update.own, update, allow
+    p, role:default/api-owner, kuadrant.apiproduct.delete.own, delete, allow
+    p, role:default/api-owner, kuadrant.apiproduct.list, read, allow
+    p, role:default/api-owner, kuadrant.apikey.create, create, allow, apiproduct:*/*
+    p, role:default/api-owner, kuadrant.apikey.read.own, read, allow
+    p, role:default/api-owner, kuadrant.apikey.update.own, update, allow
+    p, role:default/api-owner, kuadrant.apikey.delete.own, delete, allow
+    p, role:default/api-owner, kuadrant.apikey.approve, update, allow
+    p, role:default/api-owner, catalog.entity.read, read, allow
+
+    # api admin: platform engineers who manage all api products
+    p, role:default/api-admin, kuadrant.planpolicy.read, read, allow
+    p, role:default/api-admin, kuadrant.planpolicy.list, read, allow
+    p, role:default/api-admin, kuadrant.apiproduct.create, create, allow
+    p, role:default/api-admin, kuadrant.apiproduct.read.all, read, allow
+    p, role:default/api-admin, kuadrant.apiproduct.update.all, update, allow
+    p, role:default/api-admin, kuadrant.apiproduct.delete.all, delete, allow
+    p, role:default/api-admin, kuadrant.apiproduct.list, read, allow
+    p, role:default/api-admin, kuadrant.apikey.create, create, allow, apiproduct:*/*
+    p, role:default/api-admin, kuadrant.apikey.read.all, read, allow
+    p, role:default/api-admin, kuadrant.apikey.update.all, update, allow
+    p, role:default/api-admin, kuadrant.apikey.delete.all, delete, allow
+    p, role:default/api-admin, kuadrant.apikey.approve, update, allow
+    p, role:default/api-admin, catalog.entity.read, read, allow
+
+    # assign groups to roles
+    g, group:default/api-consumers, role:default/api-consumer
+    g, group:default/api-owners, role:default/api-owner
+    g, group:default/api-admins, role:default/api-admin
+
+    # Development/testing only: assign guest user to admin role.
+    # For production, remove this line and assign roles to your actual users or groups.
+    g, user:default/guest, role:default/api-adminkubectl create configmap rbac-policies --from-file=rbac-policy.csv --namespace=$RHDH_NS
+...

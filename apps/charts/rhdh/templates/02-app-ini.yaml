@@ -10,6 +10,9 @@ data:
   app-config.yaml: |
     permission:
       enabled: true
+    rbac:
+      policies-csv-file: /opt/app-root/etc/rbac-policy.csv
+      policyFileReload: true
             
     app:
       title: Portal de Desarrolladores - RHCL Demo
@@ -38,7 +41,7 @@ data:
     
     catalog:
       rules:
-        - allow: [Component, System, API, Resource, Location, Template, Domain, Group, User]
+        - allow: [Component, API, APIProduct, Location, Template, Domain, User, Group, System, Resource, Plugin, Package]
       providers:
         keycloakOrg:
           default:
