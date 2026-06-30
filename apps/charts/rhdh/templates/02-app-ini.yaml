@@ -68,6 +68,7 @@ data:
             authProvider: serviceAccount
             skipTLSVerify: true
             serviceAccountToken: ${token}
+            dashboardApp: openshift
           type: config
       customResources:
         - group: tekton.dev
