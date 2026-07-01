@@ -16,8 +16,11 @@ spec:
     appConfig:
       configMaps:
         - name: app-config-rhdh
-        - name: rbac-policies
       mountPath: /opt/app-root/src
+    extraFiles:
+      mountPath: /opt/app-root/etc
+      configMaps:
+        - name: rbac-polcies
     extraEnvs:
       envs:
         - name: NODE_TLS_REJECT_UNAUTHORIZED
