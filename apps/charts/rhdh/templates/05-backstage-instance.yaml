@@ -20,7 +20,7 @@ spec:
     extraFiles:
       mountPath: /opt/app-root/etc
       configMaps:
-        - name: rbac-polcies
+        - name: rbac-policies
     extraEnvs:
       envs:
         - name: NODE_TLS_REJECT_UNAUTHORIZED
