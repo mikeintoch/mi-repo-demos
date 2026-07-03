@@ -2,7 +2,7 @@ rhdh:
   namespace: rhdh
   name: rhdh
 
-clusterDomain: apps.cluster-djkzp.dynamic2.redhatworkshops.io
+clusterDomain: apps.cluster-pmbdz.dynamic2.redhatworkshops.io
 
 keycloak:
   name: keycloak
@@ -12,4 +12,4 @@ keycloak:
   secret: hj6tBlXDh4jvSDIHEXmZFQpgJAW4dMZw
 
 kubernetes:
-  apiUrl: https://kubernetes.default.svc:443
+  apiUrl: https://api.cluster-2qvg6.dynamic2.redhatworkshops.io:6443
