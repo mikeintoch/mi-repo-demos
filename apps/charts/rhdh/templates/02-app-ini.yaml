@@ -58,28 +58,4 @@ data:
               resolvers:
                 - resolver: emailMatchingUserEntityProfileEmail
 
-    kubernetes:
-      serviceLocatorMethod:
-        type: multiTenant
-      clusterLocatorMethods:
-        - clusters:
-          - name: dev-cluster
-            url: {{ .Values.kubernetes.apiUrl }}
-            authProvider: serviceAccount
-            skipTLSVerify: true
-            serviceAccountToken: ${token}
-            dashboardApp: openshift
-          type: config
-      customResources:
-        - group: tekton.dev
-          apiVersion: v1
-          plural: pipelineruns
-        - group: tekton.dev
-          apiVersion: v1
-          plural: taskruns
-        - group: route.openshift.io
-          apiVersion: v1
-          plural: routes
-        - group: sonataflow.org
-          apiVersion: v1alpha08
-          plural: sonataflows
+    kubernetes: null
