@@ -65,7 +65,3 @@ data:
     g, group:default/api-consumers, role:default/api-consumer
     g, group:default/api-owners, role:default/api-owner
     g, group:default/api-admins, role:default/api-admin
-
-    # Development/testing only: assign guest user to admin role.
-    # For production, remove this line and assign roles to your actual users or groups.
-    g, user:default/guest, role:default/api-admin

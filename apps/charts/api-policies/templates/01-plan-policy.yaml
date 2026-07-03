@@ -11,7 +11,6 @@ spec:
     kind: HTTPRoute
     name: {{ .Values.apiSample.name }}-route
   plans:
-
     - tier: gold
       predicate: |
         has(auth.identity) && auth.identity.metadata.annotations["secret.kuadrant.io/plan-id"] == "gold"
