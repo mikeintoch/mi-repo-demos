@@ -28,7 +28,7 @@ helper-odf-bucket-secret:
   # Bucket Configuration
   bucket:
     # -- Name of the Bucket shall has been created.
-    name: *bucketname
+    name: prueba
 
   # -- Keys that shall be used to create the Secret.
   keys:
