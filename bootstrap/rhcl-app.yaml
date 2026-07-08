@@ -1,0 +1,21 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: rhcl-application
+  # El namespace real donde está corriendo tu instancia de Argo CD
+  namespace: other-gitops 
+spec:
+  project: default
+  source:
+    # URL de tu repositorio Git personal o corporativo
+    repoURL: 'https://github.com/mikeintoch/mi-repo-demos.git'
+    targetRevision: HEAD
+    # Apunta directamente a la carpeta del Helm Chart organizador
+    path: apps/rhcl-demo
+  destination:
+    server: 'https://kubernetes.default.svc'
+    namespace: default
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
