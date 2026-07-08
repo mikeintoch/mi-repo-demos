@@ -10,7 +10,7 @@ spec:
   source:
     repoURL: {{ .Values.repoURL }}
     targetRevision: {{ .Values.targetRevision }}
-    path: apps/charts/observability-dashboards
+    path: apps/charts/observability-dashboard
   destination:
     server: 'https://kubernetes.default.svc'
     namespace: {{ .Values.tempo.namespace }}
