@@ -1,22 +1,15 @@
----
-apiVersion: operators.coreos.com/v1
-kind: OperatorGroup
-metadata:
-  name: {{ .Values.tempo.name }}
-  namespace: {{ .Values.tempo.namespace }}
-  annotations:
-    argocd.argoproj.io/sync-wave: "8"
-spec:
-  upgradeStrategy: Default
----
 apiVersion: operators.coreos.com/v1alpha1
 kind: Subscription
 metadata:
+  generation: 1
+  labels:
+    operators.coreos.com/tempo-product.openshift-tempo-operator: ''
   name: tempo-product
-  namespace: {{ .Values.tempo.namespace }}
+  namespace: openshift-tempo-operator
 spec:
   channel: stable
   installPlanApproval: Automatic
   name: tempo-product
   source: redhat-operators
   sourceNamespace: openshift-marketplace
+
