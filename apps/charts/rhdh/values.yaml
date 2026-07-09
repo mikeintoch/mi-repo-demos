@@ -14,4 +14,4 @@ kubernetes:
   apiUrl: https://api.cluster-cwgqs.dynamic2.redhatworkshops.io:6443
 
 kuadrant:
-  pluginVersion: v0.2.1
+  pluginVersion: v0.3.0

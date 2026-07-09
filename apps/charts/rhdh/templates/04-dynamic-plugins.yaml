@@ -334,12 +334,12 @@ data:
 
       # Kuadrant Backend
       - package: "@kuadrant/kuadrant-backstage-plugin-backend-dynamic@{{ .Values.kuadrant.pluginVersion }}"
-        integrity: sha512-pttQ6Lp7wD6EqDXAC3AIm4FWuQYO0i1KwoR0k6opTTyRZOGaNyO3YmPQdF403n+WjfTZRE+dfccD/9R4/SO5iA==
+        integrity: sha512-TWqq/0qW+ks3rNUSBF93/1Gw1ADu1MMVlQwl1xXbQpzPWyabZm/2F9MFsznl+3DQ16/w/9e7QPNS7DiTis2urw==
         disabled: false
 
       # Kuadrant Frontend
       - package: "@kuadrant/kuadrant-backstage-plugin-frontend@{{ .Values.kuadrant.pluginVersion }}"
-        integrity: sha512-E4zgwY3QQmA2mn0CwO2Zwc0k9/oCtHcsVHRcrKal2PfnXv6chKb9fCKi5SznH9FbNtx8fHVYnac9SQjFh5XGCA==
+        integrity: sha512-v1AgCXqouFlpINPWUnNDfuayO1krkRY5XJLPsne4mzBiKp5dDY993Zu+YdRVHsrrIbuNoRUcotWOZqjLwuLWuw==
         disabled: false
         pluginConfig:
           dynamicPlugins:
