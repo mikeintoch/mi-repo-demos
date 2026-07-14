@@ -2,7 +2,8 @@ rhdh:
   namespace: rhdh
   name: rhdh
 
-clusterDomain: apps.cluster-fkw98.dynamic2.redhatworkshops.io
+clusterDomain: apps.<cluster-domain>
+
 keycloak:
   name: keycloak
   namespace: keycloak
@@ -11,7 +12,7 @@ keycloak:
   secret: hj6tBlXDh4jvSDIHEXmZFQpgJAW4dMZw
 
 kubernetes:
-  apiUrl: https://api.cluster-fkw98.dynamic2.redhatworkshops.io:6443
+  apiUrl: https://api.<cluster-domain>:6443
 
 kuadrant:
   pluginVersion: v0.3.0

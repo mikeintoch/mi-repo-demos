@@ -8,4 +8,5 @@ apiSample:
   namespace: api-sample
   servicePort: 80 
 
-clusterDomain: apps.cluster-fkw98.dynamic2.redhatworkshops.io
+global:
+  clusterDomain: app.<cluster-name>.<cluster-domain>

@@ -21,3 +21,7 @@ rhdh:
 
 tempo:
   namespace: tempo
+
+global:
+  clusterApi: https://api.cluster-bgkrq.dynamic2.redhatworkshops.io:6443
+  clusterDomain: apps.cluster-bgkrq.dynamic2.redhatworkshops.io

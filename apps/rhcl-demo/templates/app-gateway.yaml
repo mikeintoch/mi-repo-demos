@@ -11,6 +11,10 @@ spec:
     repoURL: {{ .Values.repoURL }}
     targetRevision: {{ .Values.targetRevision }}
     path: apps/charts/gateway
+    helm:
+      parameters:
+        - name: "clusterDomain"
+          value: "{{ .Values.global.clusterDomain }}"
   destination:
     server: 'https://kubernetes.default.svc'
     namespace: {{ .Values.gateway.namespace }}
