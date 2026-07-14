@@ -11,5 +11,5 @@ spec:
     developerPortal:
       enabled: true 
   observability:
-    enabled: true
+    enable: true
 ...
