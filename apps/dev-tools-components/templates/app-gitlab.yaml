@@ -1,0 +1,25 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: gitlab
+  namespace: {{ .Values.gitops.namespace }}
+  annotations:
+    argocd.argoproj.io/sync-wave: "1"
+spec:
+  project: default
+  source:
+    repoURL: {{ .Values.repoURL }}
+    targetRevision: {{ .Values.targetRevision }}
+    path: apps/charts/gitlab
+    helm:
+      parameters:
+        - name: "clusterDomain"
+          value: "{{ .Values.global.clusterDomain }}"
+  destination:
+    server: 'https://kubernetes.default.svc'
+    namespace: {{ .Values.gitlab.namespace }}
+  syncPolicy:
+    automated: { prune: true, selfHeal: true }
+    syncOptions:
+      - CreateNamespace=true
+      - SkipDryRunOnMissingResource=true

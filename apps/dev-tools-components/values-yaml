@@ -1,0 +1,11 @@
+repoURL: 'https://github.com/mikeintoch/mi-repo-demos.git'
+targetRevision: HEAD
+
+gitlab:
+  namespace: gitlab-system
+
+gitops:
+  namespace: other-gitops
+
+global:
+  clusterDomain: apps.cluster-vsf65.dyn.redhatworkshops.io
