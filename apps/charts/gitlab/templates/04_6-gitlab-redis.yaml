@@ -1,0 +1,46 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: redis
+  namespace: {{ .Values.gitlab.namespace }}
+  annotations:
+    argocd.argoproj.io/sync-wave: "4"
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: gitlab-redis
+  template:
+    metadata:
+      labels:
+        app: gitlab-redis
+    spec:
+      securityContext:
+        runAsNonRoot: true
+        runAsUser: 1001
+        fsGroup: 1001
+      containers:
+      - name: redis
+        image: redis:7.2
+        args: ["--requirepass", "averysecurepassword","--stop-writes-on-bgsave-error", "no"]
+        env:
+        - name: REDIS_PASSWORD
+          valueFrom:
+            secretKeyRef:
+              name: gitlab-redis-secret
+              key: password
+        - name: REDIS_AOF_ENABLED
+          value: "yes"
+        ports:
+        - containerPort: 6379
+        volumeMounts:
+        - name: redis-data
+          mountPath: /bitnami/redis/data
+      volumes:
+      - name: redis-data
+        persistentVolumeClaim:
+          claimName: gitlab-redis-pvc
+      serviceAccount: redis-sa
+      serviceAccountName: redis-sa
+...

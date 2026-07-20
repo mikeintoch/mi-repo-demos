@@ -1,0 +1,69 @@
+---
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: transformar-secrets-job
+  namespace: gitlab-system
+  annotations:
+    argocd.argoproj.io/sync-wave: "7"
+spec:
+  template:
+    spec:
+      serviceAccountName: sync-bucket-sa
+      restartPolicy: OnFailure
+      containers:
+        - name: openshift-cli
+          image: quay.io/openshift/origin-cli:latest
+          command: ["/bin/sh", "-c"]
+          args:
+            - |
+              set -e
+              
+              echo "==> Extrayendo datos del bucket de origen (gitlab-bucket)..."
+              BUCKET_NAME=$(oc get configmap gitlab-bucket -n gitlab-system -o jsonpath='{.data.BUCKET_NAME}')
+              BUCKET_HOST=$(oc get configmap gitlab-bucket -n gitlab-system -o jsonpath='{.data.BUCKET_HOST}')
+              BUCKET_PORT=$(oc get configmap gitlab-bucket -n gitlab-system -o jsonpath='{.data.BUCKET_PORT}')
+              
+              AWS_ACCESS_KEY_ID=$(oc get secret gitlab-bucket -n gitlab-system -o jsonpath='{.data.AWS_ACCESS_KEY_ID}' | base64 -d)
+              AWS_SECRET_ACCESS_KEY=$(oc get secret gitlab-bucket -n gitlab-system -o jsonpath='{.data.AWS_SECRET_ACCESS_KEY}' | base64 -d)
+
+              echo "==> Limpiando versiones anteriores del secret destino..."
+              oc delete secret gitlab-object-storage -n gitlab-system --ignore-not-found
+              oc delete secret gitlab-object-storage-s3cmd -n gitlab-system --ignore-not-found
+              oc delete secret gitlab-registry-storage -n gitlab-system --ignore-not-found
+
+              echo "==> Generando el nuevo secret gitlab-object-storage transformado en gitlab-system..."
+              cat <<EOF | oc create secret generic gitlab-object-storage -n gitlab-system --from-file=config=/dev/stdin
+              provider: AWS
+              region: ''
+              aws_access_key_id: $AWS_ACCESS_KEY_ID
+              aws_secret_access_key: $AWS_SECRET_ACCESS_KEY
+              endpoint: https://$BUCKET_HOST:$BUCKET_PORT
+              path_style: true
+              EOF
+
+              echo "==> Generando el nuevo secret gitlab-object-storage-s3cmd transformado en gitlab-system..."
+              cat <<EOF | oc create secret generic gitlab-object-storage-s3cmd -n gitlab-system --from-file=config=/dev/stdin
+              [default]
+              access_key = $AWS_ACCESS_KEY_ID
+              secret_key = $AWS_SECRET_ACCESS_KEY
+              bucket = $BUCKET_NAME
+              host_base = $BUCKET_HOST:$BUCKET_PORT
+              host_bucket = $BUCKET_HOST:$BUCKET_PORT
+              use_https = True
+              EOF
+
+              echo "==> Generando el nuevo secret gitlab-registry-storage transformado en gitlab-system..."
+              cat <<EOF | oc create secret generic gitlab-registry-storage -n gitlab-system --from-file=config=/dev/stdin
+              s3:
+                access_key: $AWS_ACCESS_KEY_ID
+                secret_key: $AWS_SECRET_ACCESS_KEY
+                bucket: $BUCKET_NAME
+                region: ''
+                regionendpoint: https://$BUCKET_HOST:$BUCKET_PORT
+                secure: false
+                v4auth: true
+                path_style: true
+              EOF
+
+              echo "==> ¡Proceso finalizado con éxito!"

@@ -1,0 +1,4 @@
+gitlab:
+  namespace: gitlab-system
+
+clusterDomain: cluster.local

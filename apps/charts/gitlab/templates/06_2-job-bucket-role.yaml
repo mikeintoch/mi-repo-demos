@@ -1,0 +1,14 @@
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: Role
+metadata:
+  name: sync-bucket-role
+  namespace: {{ .Values.gitlab.namespace }}
+  annotations:
+    argocd.argoproj.io/sync-wave: "6"
+rules:
+  - apiGroups: [""]
+    resources: ["configmaps", "secrets"]
+    # Se añade "update" y se asegura que cubra todo lo que hace el script
+    verbs: ["get", "list", "create", "update", "delete", "patch"]
+...

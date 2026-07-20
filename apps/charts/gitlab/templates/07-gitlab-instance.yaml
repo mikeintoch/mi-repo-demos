@@ -1,0 +1,127 @@
+apiVersion: apps.gitlab.com/v1beta1
+kind: GitLab
+metadata:
+  name: gitlab
+  namespace: gitlab-system
+  annotations:
+    argocd.argoproj.io/sync-wave: "8"
+spec:
+  chart:
+    values:
+      edition: ce
+      prometheus:
+        install: false
+      gatewayApiResources:
+        gateway:
+          listeners:
+            gitlab-web:
+              tls:
+                certificateRefs:
+                  - name: null
+            kas-web:
+              tls:
+                certificateRefs:
+                  - name: null
+            registry-web:
+              tls:
+                certificateRefs:
+                  - name: null
+      gitlab:
+        gitlab-shell:
+          maxReplicas: 2
+          minReplicas: 1
+        sidekiq:
+          maxReplicas: 2
+          minReplicas: 1
+          resources:
+            requests:
+              cpu: 500m
+              memory: 1000M
+        toolbox:
+          backups:
+            objectStorage:
+              config:
+                key: config
+                secret: gitlab-object-storage-s3cmd
+        webservice:
+          maxReplicas: 2
+          minReplicas: 1
+          resources:
+            requests:
+              cpu: 500m
+              memory: 1500M
+      global:
+        appConfig:
+          artifacts:
+            bucket: gitlab-artifacts
+          object_store:
+            connection:
+              key: config
+              secret: gitlab-object-storage
+            enabled: true
+            proxy_download: true
+          externalDiffs:
+            bucket: gitlab-mr-diffs
+            enabled: true
+          dependencyProxy:
+            bucket: gitlab-dependency-proxy
+            enabled: true
+          packages:
+            bucket: gitlab-packages
+          uploads:
+            bucket: gitlab-uploads
+          lfs:
+            bucket: git-lfs
+          ciSecureFiles:
+            bucket: gitlab-ci-secure-files
+            enabled: true
+          terraformState:
+            bucket: gitlab-terraform-state
+            enabled: true
+        gatewayApi:
+          configureCertmanager: false
+          enabled: false
+          installEnvoy: false
+        hosts:
+          domain: {{ .Values.clusterDomain }}
+          hostSuffix: ci
+        ingress:
+          annotations:
+            route.openshift.io/termination: edge
+          class: none
+          configureCertmanager: false
+          enabled: true
+          tls:
+            enabled: false
+            secretName: null
+        pages:
+          objectStore:
+            connection:
+              key: config
+              secret: gitlab-object-storage
+        psql:
+          username: gitlab
+          password:
+            useSecret: true
+            key: password
+            secret: gitlab-db-secret
+          database: gitlab
+          port: 5432
+          host: gitlab-postgres
+        redis:
+          auth:
+            enabled: true
+            key: password
+            secret:  gitlab-redis-secret
+          host: gitlab-redis
+      installCertmanager: false
+      nginx-ingress:
+        enabled: false
+      registry:
+        enabled: false
+        storage:
+          key: config
+          redirect:
+            disable: true
+          secret: gitlab-registry-storage
+    version: 10.2.0

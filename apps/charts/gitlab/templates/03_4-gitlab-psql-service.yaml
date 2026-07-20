@@ -1,0 +1,16 @@
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: gitlab-postgres
+  namespace: {{ .Values.gitlab.namespace }}
+  annotations:
+    argocd.argoproj.io/sync-wave: "2"
+spec:
+  selector:
+    app: gitlab-postgres
+  type: ClusterIP
+  ports:
+    - port: 5432
+      targetPort: 5432
+...
