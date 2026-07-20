@@ -412,8 +412,8 @@ data:
                       if:
                         allOf:
                           - isKind: api
-        # OpenDORA Plugin
-        - package: "@opendora/opendora-backstage-plugin-frontend@v0.4.0"
-          integrity: sha512-/FUmt9aXXzUsoLnSo1eur/Zl8e44Xvsp1P+th3rRJW9D4yHbm11tBQmrqKGq3hvIPrFjFbDBHl2RtZAqmfY2bg==
-          disabled: false
+      # OpenDORA Plugin
+      - package: "@opendora/opendora-backstage-plugin-frontend@v0.4.0"
+        integrity: sha512-/FUmt9aXXzUsoLnSo1eur/Zl8e44Xvsp1P+th3rRJW9D4yHbm11tBQmrqKGq3hvIPrFjFbDBHl2RtZAqmfY2bg==
+        disabled: false
 ...
