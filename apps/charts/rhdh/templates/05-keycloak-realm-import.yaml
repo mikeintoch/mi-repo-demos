@@ -2151,7 +2151,7 @@ items:
           - https://api.dicebear.com/9.x/personas/svg?seed=Dave
         credentials:
         - type: password
-          value: 1yaYBG9GjfUo
+          value: openshift
         disableableCredentialTypes: []
         email: dev1@rhdemo.com
         emailVerified: true
@@ -2174,7 +2174,7 @@ items:
           - https://api.dicebear.com/9.x/personas/svg?seed=Divya
         credentials:
         - type: password
-          value: 1yaYBG9GjfUo
+          value: openshift
         disableableCredentialTypes: []
         email: dev2@rhdemo.com
         emailVerified: true
@@ -2197,7 +2197,7 @@ items:
           - https://api.dicebear.com/9.x/personas/svg?seed=Paul
         credentials:
         - type: password
-          value: 1yaYBG9GjfUo
+          value: openshift
         disableableCredentialTypes: []
         email: pe1@rhdemo.com
         emailVerified: true
@@ -2220,7 +2220,7 @@ items:
           - https://api.dicebear.com/9.x/personas/svg?seed=Priya
         credentials:
         - type: password
-          value: 1yaYBG9GjfUo
+          value: openshift
         disableableCredentialTypes: []
         email: pe2@rhdemo.com
         emailVerified: true
@@ -2240,7 +2240,7 @@ items:
         username: pe2
       - credentials:
         - type: password
-          value: 1yaYBG9GjfUo
+          value: openshift
         disableableCredentialTypes: []
         email: pipeline@rhdemo.com
         emailVerified: true
