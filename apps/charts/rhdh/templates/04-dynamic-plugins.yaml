@@ -416,5 +416,21 @@ data:
         - package: "@opendora/opendora-backstage-plugin-frontend@0.4.0"
           integrity: sha512-/FUmt9aXXzUsoLnSo1eur/Zl8e44Xvsp1P+th3rRJW9D4yHbm11tBQmrqKGq3hvIPrFjFbDBHl2RtZAqmfY2bg==
           disabled: false
+          pluginConfig:
+            dynamicPlugins:
+              frontendConfig:
+                # Añadir OpenDORA a la barra de navegación lateral (Sidebar)
+                - MountPoint: sidebar.items
+                  importName: OpenDoraPluginPage
+                  config:
+                    to: /open-dora
+                    text: OpenDORA
+                    icon: extension # Puedes elegir el ícono que prefieras
+
+                # (Opcional) Añadirlo como una pestaña dentro de las Entity Pages del catálogo
+                - MountPoint: entity.page.overview/cards
+                  importName: EntityOpenDoraCard
+                  config:
+                    if: isKind('component') # Se muestra solo en componentes
 
 ...
