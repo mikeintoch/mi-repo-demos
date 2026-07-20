@@ -1,4 +1,6 @@
 apiVersion: v2
-name: dev-tools-applications
-description: Helm Chart para desplegar gitlab
-appVersion: "1.0.0"
+name: gitlab
+description: Helm Chart para desplegar Gitlab en un cluster de OpenShift
+type: application
+version: 1.0.0
+appVersion: "1.10.0"
