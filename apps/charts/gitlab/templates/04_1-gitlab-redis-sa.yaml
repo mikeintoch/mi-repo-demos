@@ -5,5 +5,5 @@ metadata:
   name: redis-sa
   namespace: {{ .Values.gitlab.namespace }}
   annotations:
-    argocd.argoproj.io/sync-wave: "3"
+    argocd.argoproj.io/sync-wave: "2"
 ...

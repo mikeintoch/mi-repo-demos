@@ -5,7 +5,7 @@ metadata:
   name: gitlab-postgres
   namespace: {{ .Values.gitlab.namespace }}
   annotations:
-    argocd.argoproj.io/sync-wave: "2"
+    argocd.argoproj.io/sync-wave: "1"
 spec:
   replicas: 1
   selector:
