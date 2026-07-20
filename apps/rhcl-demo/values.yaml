@@ -23,5 +23,5 @@ tempo:
   namespace: tempo
 
 global:
-  clusterApi: https://api.cluster-bgkrq.dynamic2.redhatworkshops.io:6443
-  clusterDomain: apps.cluster-bgkrq.dynamic2.redhatworkshops.io
+  clusterApi: https://api.cluster-vsf65.dyn.redhatworkshops.io:6443
+  clusterDomain: apps.cluster-vsf65.dyn.redhatworkshops.io
