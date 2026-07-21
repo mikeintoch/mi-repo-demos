@@ -3,7 +3,7 @@ kind: ClusterRole
 metadata:
   name: tempostack-traces-reader
   annotations:
-    argocd.argoproj.io/sync-wave: "9"
+    argocd.argoproj.io/sync-wave: "3"
 rules:
   - apiGroups:
       - tempo.grafana.com
@@ -19,7 +19,7 @@ kind: ClusterRoleBinding
 metadata:
   name: tempostack-traces-reader
   annotations:
-    argocd.argoproj.io/sync-wave: "9"
+    argocd.argoproj.io/sync-wave: "3"
 roleRef:
   apiGroup: rbac.authorization.k8s.io
   kind: ClusterRole
@@ -34,7 +34,7 @@ kind: ClusterRole
 metadata:
   name: tempostack-traces-writer
   annotations:
-    argocd.argoproj.io/sync-wave: "9"
+    argocd.argoproj.io/sync-wave: "3"
 rules:
   - apiGroups:
       - tempo.grafana.com
@@ -50,7 +50,7 @@ kind: ClusterRoleBinding
 metadata:
   name: tempostack-traces-writer
   annotations:
-    argocd.argoproj.io/sync-wave: "9"
+    argocd.argoproj.io/sync-wave: "3"
 roleRef:
   apiGroup: rbac.authorization.k8s.io
   kind: ClusterRole

@@ -6,6 +6,8 @@ metadata:
     operators.coreos.com/tempo-product.openshift-tempo-operator: ''
   name: tempo-product
   namespace: openshift-tempo-operator
+  annotations:
+    argocd.argoproj.io/sync-wave: "1"
 spec:
   channel: stable
   installPlanApproval: Automatic
