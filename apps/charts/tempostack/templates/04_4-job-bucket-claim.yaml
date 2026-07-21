@@ -1,0 +1,37 @@
+---
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: transformar-secrets-job
+  namespace: {{ .Values.tempo.namespace }}
+  annotations:
+    argocd.argoproj.io/sync-wave: "3"
+spec:
+  template:
+    spec:
+      serviceAccountName: sync-bucket-sa
+      restartPolicy: OnFailure
+      containers:
+        - name: openshift-cli
+          image: quay.io/openshift/origin-cli:latest
+          command: ["/bin/sh", "-c"]
+          args:
+            - |
+              set -e
+              
+              echo "==> Extrayendo datos del bucket de origen ({{ .Values.tempo.name }}-bucket)..."
+              BUCKET_NAME=$(oc get configmap {{ .Values.tempo.name }}-bucket -n {{ .Values.tempo.namespace }} -o jsonpath='{.data.BUCKET_NAME}')
+              BUCKET_HOST=$(oc get configmap {{ .Values.tempo.name }}-bucket -n {{ .Values.tempo.namespace }} -o jsonpath='{.data.BUCKET_HOST}')
+              BUCKET_PORT=$(oc get configmap {{ .Values.tempo.name }}-bucket -n {{ .Values.tempo.namespace }} -o jsonpath='{.data.BUCKET_PORT}')
+              
+              AWS_ACCESS_KEY_ID=$(oc get secret {{ .Values.tempo.name }}-bucket -n {{ .Values.tempo.namespace }} -o jsonpath='{.data.AWS_ACCESS_KEY_ID}' | base64 -d)
+              AWS_SECRET_ACCESS_KEY=$(oc get secret {{ .Values.tempo.name }}-bucket -n {{ .Values.tempo.namespace }} -o jsonpath='{.data.AWS_SECRET_ACCESS_KEY}' | base64 -d)
+
+              echo "==> Limpiando versiones anteriores del secret destino..."
+              oc delete secret tempo-bucket-secret -n {{ .Values.tempo.namespace }} --ignore-not-found
+
+              oc create secret generic tempo-bucket-secret -n {{ .Values.tempo.namespace }} \
+              --from-literal=endpoint="https://$BUCKET_HOST:$BUCKET_PORT" \
+              --from-literal=bucket="$BUCKET_NAME" \
+              --from-literal=access_key_id="$AWS_ACCESS_KEY_ID" \
+              --from-literal=access_key_secret="$AWS_SECRET_ACCESS_KEY"
