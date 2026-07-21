@@ -12,4 +12,11 @@ spec:
       enabled: true 
   observability:
     enable: true
+    dataPlane:
+      defaultLevels:
+        - debug: "true"
+      httpHeaderIdentifier: x-request-id
+    tracing:
+      defaultEndpoint: rpc://otel-collector.tempo.svc.cluster.local:4317
+      insecure: true
 ...
