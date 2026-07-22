@@ -1,5 +1,5 @@
 apiVersion: v2
 name: monitoring-applications
-description: Helm Chart para desplegar los componentes de monitoreo para la demo.
+description: Helm Chart para desplegar los componentes de tracing.
 version: 1.0.0
 appVersion: "1.0.0"
