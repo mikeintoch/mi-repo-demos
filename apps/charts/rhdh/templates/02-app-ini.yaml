@@ -59,6 +59,3 @@ data:
                 - resolver: emailMatchingUserEntityProfileEmail
 
     kubernetes: null
-
-    open-dora:
-      apiBaseUrl: https://devlake.apps.cluster-vsf65.dyn.redhatworkshops.io
