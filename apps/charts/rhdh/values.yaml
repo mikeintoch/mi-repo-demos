@@ -15,6 +15,6 @@ kubernetes:
   apiUrl: https://api.<cluster-domain>:6443
 
 kuadrant:
-  pluginVersion: v0.3.0
-  backendCheckSum: sha512-TWqq/0qW+ks3rNUSBF93/1Gw1ADu1MMVlQwl1xXbQpzPWyabZm/2F9MFsznl+3DQ16/w/9e7QPNS7DiTis2urw==
-  frontendCheckSum: sha512-v1AgCXqouFlpINPWUnNDfuayO1krkRY5XJLPsne4mzBiKp5dDY993Zu+YdRVHsrrIbuNoRUcotWOZqjLwuLWuw==
+  pluginVersion: v<version>
+  backendCheckSum: <npmchecksum>
+  frontendCheckSum: <npmchecksum>

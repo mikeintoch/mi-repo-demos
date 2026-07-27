@@ -17,6 +17,12 @@ spec:
           value: "{{ .Values.global.clusterDomain }}"
         - name: "kubernetes.apiUrl"
           value: "{{ .Values.global.apiUrl }}"
+        - name: "kuadrant.pluginVersion"
+          value: "{{ .Values.kuadrant.pluginVersion }}"
+        - name: "kuadrant.backendCheckSum"
+          value: "{{ .Values.kuadrant.backendCheckSum }}"
+        - name: "kuadrant.frontendCheckSum"
+          value: "{{ .Values.kuadrant.frontendCheckSum }}"
   destination:
     server: 'https://kubernetes.default.svc'
     namespace: {{ .Values.rhdh.namespace }}
