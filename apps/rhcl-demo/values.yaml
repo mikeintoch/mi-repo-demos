@@ -23,5 +23,5 @@ tempo:
   namespace: tempo
 
 global:
-  clusterApi: https://api.cluster-vsf65.dyn.redhatworkshops.io:6443
-  clusterDomain: apps.cluster-vsf65.dyn.redhatworkshops.io
+  clusterApi: https://api.cluster-s9tpc.dyn.redhatworkshops.io:6443
+  clusterDomain: apps.cluster-s9tpc.dyn.redhatworkshops.io
