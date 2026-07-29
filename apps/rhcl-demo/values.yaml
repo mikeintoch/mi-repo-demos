@@ -26,5 +26,5 @@ tempo:
   namespace: tempo
 
 global:
-  clusterApi: https://api.cluster-s9tpc.dyn.redhatworkshops.io:6443
-  clusterDomain: apps.cluster-s9tpc.dyn.redhatworkshops.io
+  clusterApi: https://api.cluster-hkvkn.dyn.redhatworkshops.io:6443
+  clusterDomain: apps.cluster-hkvkn.dyn.redhatworkshops.io
