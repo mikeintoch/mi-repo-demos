@@ -8,4 +8,4 @@ gitops:
   namespace: other-gitops
 
 global:
-  clusterDomain: apps.cluster-vsf65.dyn.redhatworkshops.io
+  clusterDomain: apps.cluster-b764h.dyn.redhatworkshops.io
