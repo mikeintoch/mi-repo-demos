@@ -26,5 +26,5 @@ tempo:
   namespace: tempo
 
 global:
-  clusterApi: https://api.cluster-b764h.dyn.redhatworkshops.io:6443
-  clusterDomain: apps.cluster-b764h.dyn.redhatworkshops.io
+  clusterApi: https://api.cluster-57lc9.dyn.redhatworkshops.io:6443
+  clusterDomain: apps.cluster-57lc9.dyn.redhatworkshops.io
