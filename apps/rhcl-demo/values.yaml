@@ -26,5 +26,5 @@ tempo:
   namespace: tempo
 
 global:
-  clusterApi: https://api.cluster-57lc9.dyn.redhatworkshops.io:6443
-  clusterDomain: apps.cluster-57lc9.dyn.redhatworkshops.io
+  clusterApi: https://api.ocp.ngdls.sandbox5528.opentlc.com:6443
+  clusterDomain: apps.ocp.ngdls.sandbox5528.opentlc.com
