@@ -9,9 +9,9 @@ servicemesh:
 
 kuadrant:
   namespace: kuadrant-system
-  pluginVersion: v0.5.0
-  backendCheckSum: sha512-F7GpIWVoDDihcbL6lPURRFsJt6y9YWUCVDszI2Osctj1NrRF29M5Hqo3LyAcv9+/HJ7tjiXz45VMiX/EAzEdEw==
-  frontendCheckSum: sha512-SBmo6WyA/AnY2v4OMuYvm3OuzIjD4o3SsskPe+lft7s4dBw+Wrz93cwWz3k6NXK01+PxTE1V8/YXkOAIImtmHw==
+  pluginVersion: v0.4.0
+  backendCheckSum: sha512-OOkfAbnFxuOkBjvQMUqkd/TtP/yrXr15yQ/Xel880kdgZk39CPlQzVdOS3VXmcLa/Y9toI9nTbyCNqtXAD2C/g==
+  frontendCheckSum: sha512-ewW/eOoHcK8MqmhyGzFQvnU8yQkvRpQxhb/GLZbAyWwWpmA/zju2qwFWXx49eBcy9RIlfO2rwS8sQC7do3dfGA==
 
 apiSample:
   namespace: api-sample
