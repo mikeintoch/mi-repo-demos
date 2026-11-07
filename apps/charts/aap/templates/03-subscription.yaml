@@ -4,9 +4,8 @@ metadata:
   name: ansible-automation-platform-operator
   namespace: {{ .Values.aap.namespace }}
 spec:
-  channel: stable-2.6
+  channel: stable-2.7
   installPlanApproval: Automatic
   name: ansible-automation-platform-operator
   source: redhat-operators
   sourceNamespace: openshift-marketplace
-  startingCSV: aap-operator.v2.6.0-0.1762261205
