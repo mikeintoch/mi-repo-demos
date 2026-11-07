@@ -1,0 +1,6 @@
+apiVersion: v2
+name: aap-component
+description: Helm Chart para desplegar Ansible Automation Platform.
+type: application
+version: 1.0.0
+appVersion: "1.10.0"
