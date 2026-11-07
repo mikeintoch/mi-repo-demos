@@ -11,12 +11,6 @@ spec:
     repoURL: {{ .Values.repoURL }}
     targetRevision: {{ .Values.targetRevision }}
     path: apps/charts/aap
-    helm:
-      parameters:
-        - name: "clusterDomain"
-          value: "{{ .Values.global.clusterDomain }}"
-        - name: "kubernetes.apiUrl"
-          value: "{{ .Values.global.apiUrl }}"
   destination:
     server: 'https://kubernetes.default.svc'
     namespace: {{ .Values.aap.namespace }}
