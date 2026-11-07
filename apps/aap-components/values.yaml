@@ -1,0 +1,8 @@
+repoURL: 'https://github.com/mikeintoch/mi-repo-demos.git'
+targetRevision: HEAD
+
+gitops:
+  namespace: other-gitops
+
+aap:
+  namespace: aap
