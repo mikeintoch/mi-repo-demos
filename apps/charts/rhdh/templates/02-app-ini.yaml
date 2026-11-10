@@ -18,7 +18,7 @@ data:
       title: Portal de Desarrolladores - RHDH Demo
       baseUrl: https://rhdh.{{ .Values.clusterDomain }}
     
-    integration:
+    integrations:
       github:
         - host: github.com
           token: ${GITHUB_TOKEN}
@@ -48,12 +48,15 @@ data:
       locations:
       - rules:
         - allow:
-          - Template
+          - [Template]
         target: https://raw.githubusercontent.com/mydemodev/my-rhdh-templates/refs/heads/main/templates.yaml
         type: url
       rules:
         - allow: [Component, API, APIProduct, Location, Template, Domain, User, Group, System, Resource, Plugin, Package]
       providers:
+        github:
+          providerId:
+            organization: mydemodev
         keycloakOrg:
           default:
             baseUrl: https://sso.{{ .Values.clusterDomain }}/
