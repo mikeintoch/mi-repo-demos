@@ -17,9 +17,9 @@ data:
       - package: ./dynamic-plugins/dist/red-hat-developer-hub-backstage-plugin-quickstart
         disabled: true
 
-      - package: './dynamic-plugins/dist/backstage-plugin-catalog-backend-module-github-dynamic'
+      - package: './dynamic-plugins/dist/backstage-plugin-catalog-backend-module-github'
         disabled: false
-      - package: './dynamic-plugins/dist/backstage-plugin-scaffolder-backend-module-github-dynamic'
+      - package: './dynamic-plugins/dist/backstage-plugin-scaffolder-backend-module-github'
         disabled: false
       
       # Bulk import plugins (https://docs.redhat.com/en/documentation/red_hat_developer_hub/1.8/html/configuring_dynamic_plugins/bulk-importing-github-repositories)

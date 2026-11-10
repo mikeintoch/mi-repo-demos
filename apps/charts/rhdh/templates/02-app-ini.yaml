@@ -73,3 +73,5 @@ data:
                 - resolver: emailMatchingUserEntityProfileEmail
 
     kubernetes: null
+    enabled:
+      github: true
