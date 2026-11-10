@@ -45,6 +45,12 @@ data:
                 - resolver: preferredUsernameMatchingUserEntityName
     
     catalog:
+    locations:
+    - rules:
+      - allow:
+        - Template
+      target: https://raw.githubusercontent.com/mydemodev/my-rhdh-templates/refs/heads/main/templates.yaml
+      type: url
       rules:
         - allow: [Component, API, APIProduct, Location, Template, Domain, User, Group, System, Resource, Plugin, Package]
       providers:
