@@ -49,7 +49,7 @@ data:
       - rules:
         - allow:
           - Template
-        target: https://gitlab-gitlab.apps.ocp.845b8.sandbox3945.opentlc.com/rhdh/developer-hub-software-templates/blob/main/showcase-templates.yaml
+        target: https://raw.githubusercontent.com/mydemodev/my-rhdh-templates/refs/heads/main/templates.yaml
         type: url
       rules:
         - allow: [Component, API, APIProduct, Location, Template, Domain, User, Group, System, Resource, Plugin, Package]
