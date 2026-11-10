@@ -28,6 +28,7 @@ spec:
       secrets:
         - name: rhdh-secrets
         - name: kubernetes-sa-token
+        - name: github-secrets
     replicas: 1
     route:
       enabled: true
