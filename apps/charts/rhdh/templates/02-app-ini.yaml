@@ -50,7 +50,7 @@ data:
         target: https://raw.githubusercontent.com/mydemodev/my-rhdh-templates/refs/heads/main/templates.yaml
         rules:
         - allow:
-          - [Template]
+          - Template
       rules:
         - allow: [Component, API, APIProduct, Location, Template, Domain, User, Group, System, Resource, Plugin, Package]
       providers:
