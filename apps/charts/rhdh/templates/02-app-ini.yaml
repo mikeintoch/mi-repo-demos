@@ -15,8 +15,13 @@ data:
         policyFileReload: true
             
     app:
-      title: Portal de Desarrolladores - RHCL Demo
+      title: Portal de Desarrolladores - RHDH Demo
       baseUrl: https://rhdh.{{ .Values.clusterDomain }}
+    
+    integration:
+      github:
+        - host: github.com
+          token: ${GITHUB_TOKEN}
 
     backend:
       baseUrl: https://rhdh.{{ .Values.clusterDomain }}
