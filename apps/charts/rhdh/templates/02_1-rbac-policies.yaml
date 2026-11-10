@@ -65,3 +65,12 @@ data:
     g, group:default/api-consumers, role:default/api-consumer
     g, group:default/api-owners, role:default/api-owner
     g, group:default/api-admins, role:default/api-admin
+
+    # Permite a los usuarios con el rol 'rbac-admin' o un rol general ejecutar acciones del Scaffolder
+    p, role:default/admin, scaffolder-action, execute, allow
+    p, role:default/admin, catalog-entity, create, allow
+    p, role:default/admin, catalog-entity, refresh, allow
+
+    # O si tienes un grupo específico o quieres dar permisos generales de lectura/escritura a los desarrolladores:
+    p, role:default/api-consumer, scaffolder-action, execute, allow
+    p, role:default/api-consumer, catalog-entity, create, allow
