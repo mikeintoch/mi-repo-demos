@@ -47,7 +47,7 @@ data:
     catalog:
       locations:
       - type: url
-        target: https://raw.githubusercontent.com/mydemodev/my-rhdh-templates/refs/heads/main/templates.yaml
+        target: https://github.com/mydemodev/my-rhdh-templates/blob/main/templates.yaml
         rules:
         - allow:
           - Template
