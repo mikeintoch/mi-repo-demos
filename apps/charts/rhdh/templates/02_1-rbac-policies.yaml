@@ -66,11 +66,11 @@ data:
     g, group:default/api-owners, role:default/api-owner
     g, group:default/api-admins, role:default/api-admin
 
-    # Permite a los usuarios con el rol 'rbac-admin' o un rol general ejecutar acciones del Scaffolder
-    p, role:default/platformengineers,, scaffolder-action, execute, allow
-    p, role:default/platformengineers,, catalog-entity, create, allow
+    # Permite a los usuarios ejecutar acciones del Scaffolder y crear entidades
+    p, role:default/platformengineers, scaffolder-action, execute, allow
+    p, role:default/platformengineers, catalog-entity, create, allow
     p, role:default/platformengineers, catalog-entity, refresh, allow
 
-    # O si tienes un grupo específico o quieres dar permisos generales de lectura/escritura a los desarrolladores:
+    # Permite a los desarrolladores crear componentes y usar el scaffolder
     p, role:default/developers, scaffolder-action, execute, allow
     p, role:default/developers, catalog-entity, create, allow
