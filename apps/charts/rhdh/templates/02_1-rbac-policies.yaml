@@ -66,11 +66,51 @@ data:
     g, group:default/api-owners, role:default/api-owner
     g, group:default/api-admins, role:default/api-admin
 
-    # Permite a los usuarios ejecutar acciones del Scaffolder y crear entidades
-    p, role:default/platformengineers, scaffolder-action, execute, allow
-    p, role:default/platformengineers, catalog-entity, create, allow
-    p, role:default/platformengineers, catalog-entity, refresh, allow
+    # ==============================================================================
+    # 1. PERMISOS PARA EL ROL: platformengineers (Administración total + Scaffolder + RBAC)
+    # ==============================================================================
+    # Catálogo
+    p, role:default/platformengineers, catalog-entity, read, allow
+    p, role:default/platformengineers, catalog.entity.create, create, allow
+    p, role:default/platformengineers, catalog-entity, delete, allow
+    p, role:default/platformengineers, catalog.location.read, read, allow
+    p, role:default/platformengineers, catalog.location.create, create, allow
+    p, role:default/platformengineers, catalog.location.delete, delete, allow
 
-    # Permite a los desarrolladores crear componentes y usar el scaffolder
-    p, role:default/developers, scaffolder-action, execute, allow
-    p, role:default/developers, catalog-entity, create, allow
+    # Scaffolder (Templates, Actions y Tasks)
+    p, role:default/platformengineers, scaffolder.template.parameter.read, read, allow
+    p, role:default/platformengineers, scaffolder.template.step.read, read, allow
+    p, role:default/platformengineers, scaffolder.action.execute, use, allow
+    p, role:default/platformengineers, scaffolder.task.create, create, allow
+    p, role:default/platformengineers, scaffolder.task.cancel, use, allow
+    p, role:default/platformengineers, scaffolder.task.read, read, allow
+
+    # Gestión de RBAC (Necesario si ejecutan scaffolder-actions que crean roles/políticas)
+    p, role:default/platformengineers, policy.entity, create, allow
+    p, role:default/platformengineers, policy.entity, read, allow
+    p, role:default/platformengineers, policy.entity, update, allow
+    p, role:default/platformengineers, policy.entity, delete, allow
+
+    # ==============================================================================
+    # 2. PERMISOS PARA EL ROL: developers (Lectura de catálogo y ejecución de Templates)
+    # ==============================================================================
+    # Catálogo (Lectura y registro de nuevos componentes creados por el template)
+    p, role:default/developers, catalog-entity, read, allow
+    p, role:default/developers, catalog.entity.create, create, allow
+    p, role:default/developers, catalog.location.read, read, allow
+    p, role:default/developers, catalog.location.create, create, allow
+
+    # Scaffolder (Ver y lanzar plantillas y sus acciones)
+    p, role:default/developers, scaffolder.template.parameter.read, read, allow
+    p, role:default/developers, scaffolder.template.step.read, read, allow
+    p, role:default/developers, scaffolder.action.execute, use, allow
+    p, role:default/developers, scaffolder.task.create, create, allow
+    p, role:default/developers, scaffolder.task.cancel, use, allow
+    p, role:default/developers, scaffolder.task.read, read, allow
+
+    # ==============================================================================
+    # 3. ASIGNACIÓN DE GRUPOS A ROLES
+    # (Asegúrate de que el nombre del grupo coincida con el de tu catálogo/IDP)
+    # ==============================================================================
+    g, group:default/platformengineers, role:default/platformengineers
+    g, group:default/developers, role:default/developers
