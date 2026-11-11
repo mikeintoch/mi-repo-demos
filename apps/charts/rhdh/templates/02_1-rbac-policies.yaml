@@ -97,6 +97,7 @@ data:
     # Catálogo (Lectura y registro de nuevos componentes creados por el template)
     p, role:default/developers, catalog-entity, read, allow
     p, role:default/developers, catalog.entity.create, create, allow
+    p, role:default/developers, catalog-entity, delete, allow
     p, role:default/developers, catalog.location.read, read, allow
     p, role:default/developers, catalog.location.create, create, allow
     p, role:default/developers, catalog.location.delete, delete, allow
