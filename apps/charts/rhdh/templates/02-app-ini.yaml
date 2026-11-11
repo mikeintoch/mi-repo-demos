@@ -57,10 +57,6 @@ data:
         github:
           providerId:
             organization: mydemodev
-          schedule:
-            frequency: { minutes: 5 }   # Cada cuánto tiempo se ejecutará la sincronización
-            timeout: { minutes: 3 }     # Tiempo límite antes de cancelar la tarea
-            initialDelay: { seconds: 15 } # Retraso inicial al arrancar el pod
           
         keycloakOrg:
           default:
