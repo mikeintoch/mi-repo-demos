@@ -28,6 +28,8 @@ spec:
       g, system:authenticated, role:admin
       g, admin, role:admin
     scopes: '[groups]'
+  extraConfig:
+    accounts.rhdh: apiKey
   redis:
     resources:
       limits:
