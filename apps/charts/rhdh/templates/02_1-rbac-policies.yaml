@@ -99,6 +99,7 @@ data:
     p, role:default/developers, catalog.entity.create, create, allow
     p, role:default/developers, catalog.location.read, read, allow
     p, role:default/developers, catalog.location.create, create, allow
+    p, role:default/developers, catalog.location.delete, delete, allow
 
     # Scaffolder (Ver y lanzar plantillas y sus acciones)
     p, role:default/developers, scaffolder.template.parameter.read, read, allow
