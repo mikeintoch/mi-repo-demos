@@ -77,9 +77,9 @@ data:
                           - isArgocdConfigured
       # Ansible plugins
       # Frontend Plugin - Main Ansible UI
-      - package: 'http://plugin-registry:8080/ansible-plugin-backstage-rhaap-dynamic-2.0.1.tgz'
+      - package: 'http://plugin-registry:8080/ansible-plugin-backstage-rhaap-dynamic-2.3.1.tgz'
         disabled: false
-        integrity: 'sha512-OPsA+ksrgaebMAjLV8PeXL50zr42tqu2hvCzOsuOXT+3gstE9yRzvKG2okEhkIPf3k7OnBnpB/RglSXpUZ4+qw=='
+        integrity: 'sha512-iw+MzvMuYaQXpMzcNTLDfMOL3X0tvSaE04bgnOZ2Lb/NDdtdmIA1bN0Ne301uiM5K6Tq8HAO4Rk6cTpKPX5t1w=='
         pluginConfig:
           dynamicPlugins:
             frontend:
