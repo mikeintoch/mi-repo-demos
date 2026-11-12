@@ -75,12 +75,24 @@ data:
                       if:
                         allOf:
                           - isArgocdConfigured
-      # Ansible plugins:
-
-      # Backend Plugin - Auth Backend Module for RHAAP Provider
-      - package: 'http://plugin-registry:8080/ansible-backstage-plugin-auth-backend-module-rhaap-provider-dynamic-2.3.1.tgz'
+      # Ansible plugins
+      # Frontend Plugin - Main Ansible UI
+      - package: 'http://plugin-registry:8080/ansible-plugin-backstage-rhaap-dynamic-2.0.1.tgz'
         disabled: false
-        integrity: 'sha512-VazW5q3BZtqIFsZZo9fqMzScechxlThkFm+CsJXte7ij/+a9F22zug2g02uS+tmwpkx9asnr/TxMbsUFD730kA=='
+        integrity: 'sha512-OPsA+ksrgaebMAjLV8PeXL50zr42tqu2hvCzOsuOXT+3gstE9yRzvKG2okEhkIPf3k7OnBnpB/RglSXpUZ4+qw=='
+        pluginConfig:
+          dynamicPlugins:
+            frontend:
+              ansible.plugin-backstage-rhaap:
+                appIcons:
+                  - importName: AnsibleLogo
+                    name: AnsibleLogo
+                dynamicRoutes:
+                  - importName: AnsiblePage
+                    menuItem:
+                      icon: AnsibleLogo
+                      text: Ansible
+                    path: /ansible
 
       # Frontend Plugin - Self Service Portal
       - package: 'http://plugin-registry:8080/ansible-plugin-backstage-self-service-dynamic-2.3.1.tgz'
