@@ -29,7 +29,6 @@ data:
         clusterResourceWhitelist:
           - group: ''
             kind: 'Namespace'
-        # Only the listed resources will be allowed
         namespaceResourceWhitelist:
           - group: 'apps'
             kind: 'Deployment'
@@ -96,3 +95,4 @@ data:
     kubernetes: null
     enabled:
       github: true
+      argocd: true
