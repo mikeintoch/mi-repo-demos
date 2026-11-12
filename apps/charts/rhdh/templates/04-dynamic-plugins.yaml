@@ -99,8 +99,6 @@ data:
             backend:
               ansible.plugin-scaffolder-backend-module-backstage-rhaap: null
 
-
-
       # ocm
       #- package: ./dynamic-plugins/dist/backstage-community-plugin-ocm
       #  disabled: false
