@@ -75,6 +75,74 @@ data:
                       if:
                         allOf:
                           - isArgocdConfigured
+      # Ansible plugins:
+
+      # Backend Plugin - Auth Backend Module for RHAAP Provider
+      - package: 'http://plugin-registry:8080/ansible-backstage-plugin-auth-backend-module-rhaap-provider-dynamic-2.3.1.tgz'
+        disabled: false
+        integrity: 'sha512-VazW5q3BZtqIFsZZo9fqMzScechxlThkFm+CsJXte7ij/+a9F22zug2g02uS+tmwpkx9asnr/TxMbsUFD730kA=='
+
+      # Frontend Plugin - Self Service Portal
+      - package: 'http://plugin-registry:8080/ansible-plugin-backstage-self-service-dynamic-2.3.1.tgz'
+        disabled: false
+        integrity: 'sha512-KORukJPUvu7NhxPlnFRkA6IaYdMHMikGnjYcYPCmXfgJ/fUf7ed/14KtMFSQDdExUNERnNSX5pnQKrh4r5GLjg=='
+        pluginConfig:
+          dynamicPlugins:
+            frontend:
+              ansible.plugin-backstage-self-service:
+                signInPage:
+                  importName: SignInPage
+                providerSettings:
+                  - title: Ansible Automation Platform
+                    description: Sign in with Ansible Automation Platform
+                    provider: ansible.auth.rhaap
+                scaffolderFieldExtensions:
+                  - importName: AAPTokenFieldExtension
+                  - importName: AAPResourcePickerExtension
+                dynamicRoutes:
+                  - importName: LandingPage
+                    path: /
+                  - importName: SelfServicePage
+                    path: /self-service
+                mountPoints:
+                  - mountPoint: application/listener
+                    importName: LocationListener
+
+      # Backend Plugin - Scaffolder Backend Module for RHAAP Job Templates
+      - package: 'http://plugin-registry:8080/ansible-plugin-scaffolder-backend-module-backstage-rhaap-dynamic-2.3.1.tgz'
+        disabled: false
+        integrity: 'sha512-YJTHEQvRrku5nlSoEKYljB15T6l6rSTL4qv/mY3Lj5zTT6aP8ZVkvvGK/+39TLLa4Wk9APVROrSqFw0v5NH1lQ=='
+        pluginConfig:
+          dynamicPlugins:
+            backend:
+              ansible.plugin-scaffolder-backend-module-backstage-rhaap:
+                mountPoints:
+                  - importName: createAnsibleContentAction
+                    mountPoint: entity.page.overview/cards
+
+      # Backend Plugin - Catalog Backend Module for RHAAP
+      - package: 'http://plugin-registry:8080/ansible-backstage-plugin-catalog-backend-module-rhaap-dynamic-2.3.1.tgz'
+        disabled: false
+        integrity: 'sha512-wjxX5fS1o2qJqe43Q/WNYVTZnqc2VuNuDELuRMYfYeeVjvYcnZ29wxyQ3DfQTYQY3QLUPq9TnNa8QtuFs3KTyQ=='
+        pluginConfig:
+          dynamicPlugins:
+            catalog:
+              providers:
+                rhaap:
+                  development:
+                    orgs: Default
+                    sync:
+                      # Sync users, teams, and organizations
+                      orgsUsersTeams:
+                        schedule:
+                          frequency: { minutes: 60 }
+                          timeout: { minutes: 15 }
+                      # Sync job templates (optional)
+                      jobTemplates:
+                        enabled: true
+                        schedule:
+                          frequency: { minutes: 60 }
+                          timeout: { minutes: 15 }
 
       # ocm
       #- package: ./dynamic-plugins/dist/backstage-community-plugin-ocm
