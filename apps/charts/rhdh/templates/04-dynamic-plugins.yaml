@@ -37,6 +37,18 @@ data:
       - package: ./dynamic-plugins/dist/backstage-community-plugin-topology
         disabled: false
 
+      # Keycloak
+      - package: ./dynamic-plugins/dist/backstage-community-plugin-catalog-backend-module-keycloak-dynamic
+        disabled: false
+
+      # ArgoCD
+      - package: ./dynamic-plugins/dist/roadiehq-backstage-plugin-argo-cd-backend-dynamic
+        disabled: false
+      - package: ./dynamic-plugins/dist/backstage-community-plugin-redhat-argocd
+        disabled: false
+      - package: ./dynamic-plugins/dist/roadiehq-scaffolder-backend-argocd-dynamic
+        disabled: false
+
       # ocm
       #- package: ./dynamic-plugins/dist/backstage-community-plugin-ocm
       #  disabled: false
@@ -62,18 +74,6 @@ data:
       #                gridRowStart: 1
       #            importName: TektonCI
       #            mountPoint: entity.page.ci/cards
-
-      # Keycloak
-      - package: ./dynamic-plugins/dist/backstage-community-plugin-catalog-backend-module-keycloak-dynamic
-        disabled: false
-
-      # Argo CD
-      #- package: oci://ghcr.io/redhat-developer/rhdh-plugin-export-overlays/roadiehq-backstage-plugin-argo-cd-backend:bs_1.45.3__4.6.0
-      #  disabled: false
-      #- package: oci://ghcr.io/redhat-developer/rhdh-plugin-export-overlays/backstage-community-plugin-argocd:bs_1.45.3__2.4.4
-      #  disabled: false
-      #- package: oci://ghcr.io/redhat-developer/rhdh-plugin-export-overlays/roadiehq-scaffolder-backend-argocd:bs_1.45.3__1.8.1
-      #  disabled: false
 
       # Lightspeed plugins
       #- package: 'oci://ghcr.io/redhat-developer/rhdh-plugin-export-overlays/red-hat-developer-hub-backstage-plugin-lightspeed:bs_1.49.4__2.8.6'

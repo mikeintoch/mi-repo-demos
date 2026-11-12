@@ -18,6 +18,26 @@ data:
       title: Portal de Desarrolladores - RHDH Demo
       baseUrl: https://rhdh.{{ .Values.clusterDomain }}
     
+    argocd:
+      appLocatorMethods:
+        - type: 'config'
+          instances:
+            - name: clusterargo
+              url: "${ARGOCD_URL}"
+              token: "${ARGOCD_TOKEN}"
+      projectSettings:
+        clusterResourceWhitelist:
+          - group: ''
+            kind: 'Namespace'
+        # Only the listed resources will be allowed
+        namespaceResourceWhitelist:
+          - group: 'apps'
+            kind: 'Deployment'
+          - group: ''
+            kind: 'Service'
+          - group: 'route.openshift.io'
+            kind: 'Route'
+    
     integrations:
       github:
         - host: github.com

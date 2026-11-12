@@ -29,6 +29,7 @@ spec:
         - name: rhdh-secrets
         - name: kubernetes-sa-token
         - name: github-secrets
+        - name: argocd-secrets
     replicas: 1
     route:
       enabled: true

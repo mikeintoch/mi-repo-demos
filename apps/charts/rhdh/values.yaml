@@ -18,3 +18,6 @@ kuadrant:
   pluginVersion: <version>
   backendCheckSum: <npmchecksum>
   frontendCheckSum: <npmchecksum>
+
+argocd:
+  token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJhcmdvY2QiLCJzdWIiOiJhZG1pbjpsb2dpbiIsImV4cCI6MTc5NDUzMDg4MSwibmJmIjoxNzk0NDQ0NDgxLCJpYXQiOjE3OTQ0NDQ0ODEsImp0aSI6IjNlMzQ0OGNmLTFkMGUtNDY4YS1iMDAyLTJjZTU4YWFkYTdiZCJ9.Yk_aQQny3jKZYyfXKAB3EnUr3eE8BYpgxIb2gcHJPC4
