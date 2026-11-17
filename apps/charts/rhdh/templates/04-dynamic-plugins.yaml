@@ -14,19 +14,19 @@ data:
       - dynamic-plugins.default.yaml
     plugins:
       # Disable the quickstart plugin to avoid distracting people on initial sign-in
-      - package: oci://ghcr.io/redhat-developer/rhdh-plugin-export-overlays/red-hat-developer-hub-backstage-plugin-quickstart:bs_1.54.9__2.2.0
+      - package: ref://red-hat-developer-hub-backstage-plugin-quickstart
         enabled: false
 
       # Enable github plugins
-      - package: oci://ghcr.io/redhat-developer/rhdh-plugin-export-overlays/backstage-plugin-catalog-backend-module-github:pr_4701__0.13.5
+      - package: ref://backstage-plugin-catalog-backend-module-github
         enabled: true
-      - package: oci://ghcr.io/redhat-developer/rhdh-plugin-export-overlays/backstage-plugin-scaffolder-backend-module-github:pr_4701__0.9.13
+      - package: ref://backstage-plugin-scaffolder-backend-module-github
         enabled: true
       
       # Bulk import plugins
-      - package: oci://ghcr.io/redhat-developer/rhdh-plugin-export-overlays/red-hat-developer-hub-backstage-plugin-bulk-import-backend:bs_1.54.9__9.2.2
+      - package: ref://red-hat-developer-hub-backstage-plugin-bulk-import-backend:bs_1.54.9__9.2.2
         enabled: true
-      - package: oci://ghcr.io/redhat-developer/rhdh-plugin-export-overlays/red-hat-developer-hub-backstage-plugin-bulk-import:bs_1.54.9__9.2.2
+      - package:ref://red-hat-developer-hub-backstage-plugin-bulk-import:bs_1.54.9__9.2.2
         enabled: true
 
       # Kubernetes
