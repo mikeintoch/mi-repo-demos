@@ -13,11 +13,11 @@ data:
     includes:
       - dynamic-plugins.default.yaml
     plugins:
-        # Disable the quickstart plugin to avoid distracting people on initial sign-in
+      # Disable the quickstart plugin to avoid distracting people on initial sign-in
       - package: oci://ghcr.io/redhat-developer/rhdh-plugin-export-overlays/red-hat-developer-hub-backstage-plugin-quickstart:bs_1.54.9__2.2.0
         enabled: false
 
-        #Enable github plugins
+      #Enable github plugins
       - package: oci://ghcr.io/redhat-developer/rhdh-plugin-export-overlays/backstage-plugin-catalog-backend-module-github:pr_4701__0.13.5
         enabled: true
       - package:: oci:ghcr.io/redhat-developer/rhdh-plugin-export-overlays/backstage-plugin-scaffolder-backend-module-github:pr_4701__0.9.13
@@ -354,13 +354,13 @@ data:
 
       # Notification plugins (required by orchestrator workflows)
       - package: oci://ghcr.io/redhat-developer/rhdh-plugin-export-overlays/backstage-plugin-notifications:pr_4701__0.5.20__coverage
-        disabled: false
+        enabled: true
       - package: oci://ghcr.io/redhat-developer/rhdh-plugin-export-overlays/backstage-plugin-notifications-backend:pr_4701__0.6.8
-        disabled: false
+        enabled: false
       - package: oci://ghcr.io/redhat-developer/rhdh-plugin-export-overlays/backstage-plugin-signals:pr_4701__0.0.34__coverage
-        disabled: false
+        enabled: true
       - package: oci://ghcr.io/redhat-developer/rhdh-plugin-export-overlays/backstage-plugin-signals-backend:pr_4701__0.3.18
-        disabled: false
+        enabled: true
 
       # SonarQube plugin
       #- package: 'oci://ghcr.io/redhat-developer/rhdh-plugin-export-overlays/backstage-community-plugin-sonarqube:bs_1.45.3__0.21.0'
