@@ -32,7 +32,7 @@ data:
       # Kubernetes
       - package: ref://backstage-plugin-kubernetes-backend
         enabled: true
-      - package: ref://rhdh-plugin-export-overlays/backstage-plugin-kubernetes
+      - package: ref://backstage-plugin-kubernetes
         enabled: true
       - package: ref://backstage-community-plugin-topology
         enabled: true
