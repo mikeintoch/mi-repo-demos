@@ -14,31 +14,31 @@ data:
       - dynamic-plugins.default.yaml
     plugins:
         # Disable the quickstart plugin to avoid distracting people on initial sign-in
-      - package: ./dynamic-plugins/dist/red-hat-developer-hub-backstage-plugin-quickstart
+      - package: oci://ghcr.io/redhat-developer/rhdh-plugin-export-overlays/red-hat-developer-hub-backstage-plugin-quickstart:bs_1.54.9__2.2.0
         disabled: true
 
         #Enable github plugins
-      - package: ./dynamic-plugins/dist/backstage-plugin-catalog-backend-module-github-dynamic
+      - package: oci://ghcr.io/redhat-developer/rhdh-plugin-export-overlays/backstage-plugin-catalog-backend-module-github:pr_4701__0.13.5
         disabled: false
-      - package: ./dynamic-plugins/dist/backstage-plugin-scaffolder-backend-module-github-dynamic
+      - package:: oci:ghcr.io/redhat-developer/rhdh-plugin-export-overlays/backstage-plugin-scaffolder-backend-module-github:pr_4701__0.9.13
         disabled: false
       
-      # Bulk import plugins (https://docs.redhat.com/en/documentation/red_hat_developer_hub/1.8/html/configuring_dynamic_plugins/bulk-importing-github-repositories)
-      - package: ./dynamic-plugins/dist/red-hat-developer-hub-backstage-plugin-bulk-import-backend-dynamic
+      # Bulk import plugins
+      - package: oci://ghcr.io/redhat-developer/rhdh-plugin-export-overlays/red-hat-developer-hub-backstage-plugin-bulk-import-backend:bs_1.54.9__9.2.2
         disabled: false
-      - package: ./dynamic-plugins/dist/red-hat-developer-hub-backstage-plugin-bulk-import
+      - package: oci://ghcr.io/redhat-developer/rhdh-plugin-export-overlays/red-hat-developer-hub-backstage-plugin-bulk-import:bs_1.54.9__9.2.2
         disabled: false
 
       # Kubernetes
-      - package: ./dynamic-plugins/dist/backstage-plugin-kubernetes-backend-dynamic
+      - package: oci://ghcr.io/redhat-developer/rhdh-plugin-export-overlays/backstage-plugin-kubernetes-backend:pr_4701__0.21.10
         disabled: false
-      - package: ./dynamic-plugins/dist/backstage-plugin-kubernetes
+      - package: oci://ghcr.io/redhat-developer/rhdh-plugin-export-overlays/backstage-plugin-kubernetes:pr_4701__0.12.22__coverage
         disabled: false
-      - package: ./dynamic-plugins/dist/backstage-community-plugin-topology
+      - package: oci://ghcr.io/redhat-developer/rhdh-plugin-export-overlays/backstage-community-plugin-topology:bs_1.54.9__3.0.7
         disabled: false
 
       # Keycloak
-      - package: ./dynamic-plugins/dist/backstage-community-plugin-catalog-backend-module-keycloak-dynamic
+      - package: oci://ghcr.io/redhat-developer/rhdh-plugin-export-overlays/backstage-community-plugin-catalog-backend-module-keycloak:bs_1.54.9__3.23.1
         disabled: false
 
       # ArgoCD
@@ -158,7 +158,7 @@ data:
 
       # Header customisation via global header plugin
       - disabled: false
-        package: ./dynamic-plugins/dist/red-hat-developer-hub-backstage-plugin-global-header
+        package: oci://ghcr.io/redhat-developer/rhdh-plugin-export-overlays/red-hat-developer-hub-backstage-plugin-global-header:bs_1.54.9__3.2.1
         pluginConfig:
           app:
             sidebar:
@@ -353,13 +353,13 @@ data:
       #  disabled: false
 
       # Notification plugins (required by orchestrator workflows)
-      - package: ./dynamic-plugins/dist/backstage-plugin-notifications
+      - package: oci://ghcr.io/redhat-developer/rhdh-plugin-export-overlays/backstage-plugin-notifications:pr_4701__0.5.20__coverage
         disabled: false
-      - package: ./dynamic-plugins/dist/backstage-plugin-signals
+      - package: oci://ghcr.io/redhat-developer/rhdh-plugin-export-overlays/backstage-plugin-notifications-backend:pr_4701__0.6.8
         disabled: false
-      - package: ./dynamic-plugins/dist/backstage-plugin-notifications-backend-dynamic
+      - package: oci://ghcr.io/redhat-developer/rhdh-plugin-export-overlays/backstage-plugin-signals:pr_4701__0.0.34__coverage
         disabled: false
-      - package: ./dynamic-plugins/dist/backstage-plugin-signals-backend-dynamic
+      - package: oci://ghcr.io/redhat-developer/rhdh-plugin-export-overlays/backstage-plugin-signals-backend:pr_4701__0.3.18
         disabled: false
 
       # SonarQube plugin
