@@ -20,7 +20,7 @@ data:
       # Enable github plugins
       - package: oci://ghcr.io/redhat-developer/rhdh-plugin-export-overlays/backstage-plugin-catalog-backend-module-github:pr_4701__0.13.5
         enabled: true
-      - package:: oci://ghcr.io/redhat-developer/rhdh-plugin-export-overlays/backstage-plugin-scaffolder-backend-module-github:pr_4701__0.9.13
+      - package: oci://ghcr.io/redhat-developer/rhdh-plugin-export-overlays/backstage-plugin-scaffolder-backend-module-github:pr_4701__0.9.13
         enabled: true
       
       # Bulk import plugins
