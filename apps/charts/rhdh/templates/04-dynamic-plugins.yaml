@@ -17,10 +17,10 @@ data:
       - package: oci://ghcr.io/redhat-developer/rhdh-plugin-export-overlays/red-hat-developer-hub-backstage-plugin-quickstart:bs_1.54.9__2.2.0
         enabled: false
 
-      #Enable github plugins
+      # Enable github plugins
       - package: oci://ghcr.io/redhat-developer/rhdh-plugin-export-overlays/backstage-plugin-catalog-backend-module-github:pr_4701__0.13.5
         enabled: true
-      - package:: oci:ghcr.io/redhat-developer/rhdh-plugin-export-overlays/backstage-plugin-scaffolder-backend-module-github:pr_4701__0.9.13
+      - package:: oci://ghcr.io/redhat-developer/rhdh-plugin-export-overlays/backstage-plugin-scaffolder-backend-module-github:pr_4701__0.9.13
         enabled: true
       
       # Bulk import plugins
@@ -98,63 +98,6 @@ data:
           dynamicPlugins:
             backend:
               ansible.plugin-scaffolder-backend-module-backstage-rhaap: null
-
-      # ocm
-      #- package: ./dynamic-plugins/dist/backstage-community-plugin-ocm
-      #  disabled: false
-      #- package: ./dynamic-plugins/dist/backstage-community-plugin-ocm-backend-dynamic
-      #  disabled: false
-      #- package: ./dynamic-plugins/dist/backstage-community-plugin-tech-radar
-      #  disabled: false
-
-      # Tekton
-      #- package: oci://ghcr.io/redhat-developer/rhdh-plugin-export-overlays/backstage-community-plugin-tekton:bs_1.45.3__3.33.3
-      #  disabled: false
-      #  pluginConfig:
-      #    dynamicPlugins:
-      #      frontend:
-      #        backstage-community.plugin-tekton:
-      #          mountPoints:
-      #          - config:
-      #              if:
-      #                allOf:
-      #                - isTektonCIAvailable
-      #              layout:
-      #                gridColumn: 1 / -1
-      #                gridRowStart: 1
-      #            importName: TektonCI
-      #            mountPoint: entity.page.ci/cards
-
-      # Lightspeed plugins
-      #- package: 'oci://ghcr.io/redhat-developer/rhdh-plugin-export-overlays/red-hat-developer-hub-backstage-plugin-lightspeed:bs_1.49.4__2.8.6'
-      #  disabled: false
-      #  pluginConfig:
-      #    dynamicPlugins:
-      #      frontend:
-      #        red-hat-developer-hub.backstage-plugin-lightspeed:
-      #          translationResources:
-      #            - importName: lightspeedTranslations
-      #              module: Alpha
-      #              ref: lightspeedTranslationRef
-      #          dynamicRoutes:
-      #            - path: /lightspeed
-      #              importName: LightspeedPage
-      #          mountPoints:
-      #            - mountPoint: application/listener
-      #              importName: LightspeedFAB
-      #            - mountPoint: application/provider
-      #              importName: LightspeedDrawerProvider
-      #            - mountPoint: application/internal/drawer-state
-      #              importName: LightspeedDrawerStateExposer
-      #              config:
-      #                id: lightspeed
-      #            - mountPoint: application/internal/drawer-content
-      #              importName: LightspeedChatContainer
-      #              config:
-      #                id: lightspeed
-      #                priority: 100
-      #- package: 'oci://ghcr.io/redhat-developer/rhdh-plugin-export-overlays/red-hat-developer-hub-backstage-plugin-lightspeed-backend:bs_1.49.4__2.8.6'
-      #  disabled: false
 
       # Header customisation via global header plugin
       - enabled: true
@@ -312,46 +255,6 @@ data:
                         icon: '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 38 38" xmlns:v="https://vecta.io/nano"><rect x="1" y="1" width="36" height="36" rx="9"/><path d="M28 2.25A7.76 7.76 0 0 1 35.75 10v18A7.76 7.76 0 0 1 28 35.75H10A7.76 7.76 0 0 1 2.25 28V10A7.76 7.76 0 0 1 10 2.25h18M28 1H10a9 9 0 0 0-9 9v18a9 9 0 0 0 9 9h18a9 9 0 0 0 9-9V10a9 9 0 0 0-9-9h0z" fill="#4d4d4d"/><path d="M15.5 29.525c-.103 0-.207-.025-.303-.079-.302-.167-.41-.548-.243-.85l3.5-6.3c.167-.302.545-.411.85-.243s.41.548.242.85l-3.5 6.3c-.114.206-.327.321-.547.321z" fill="#e00"/><path d="M15.5 29.525c-.22 0-.433-.116-.547-.321l-5.5-9.9c-.105-.189-.105-.418 0-.607l5.5-9.9c.168-.301.549-.409.85-.243s.41.548.243.85L10.715 19l5.332 9.596c.167.302.059.683-.243.85-.096.053-.201.079-.303.079z" fill="#fff"/><path d="M22.499 29.525a.62.62 0 0 1-.303-.079c-.302-.167-.41-.548-.242-.85l5.5-9.9c.166-.302.546-.411.85-.243s.41.548.242.85l-5.5 9.9a.62.62 0 0 1-.547.321zm-3.498-13.5c-.22 0-.433-.116-.547-.321l-3.5-6.3c-.167-.302-.059-.683.243-.85s.682-.059.85.243l3.5 6.3c.168.302.06.683-.242.85a.63.63 0 0 1-.303.079z" fill="#e00"/><path d="M22.501 29.525c-.22 0-.433-.116-.547-.321l-5.5-9.9c-.105-.189-.105-.418 0-.607l5.5-9.9c.166-.302.546-.41.85-.243s.41.548.242.85L17.715 19l5.331 9.596c.168.302.06.683-.242.85-.097.053-.2.079-.303.079z" fill="#fff"/><path d="M28.001 19.625c-.22 0-.433-.116-.547-.321l-5.5-9.9c-.168-.302-.06-.683.242-.85s.682-.059.85.243l5.5 9.9c.168.302.06.683-.242.85-.097.053-.2.079-.303.079z" fill="#e00"/></svg>'
                         link: https://quay.{{ .Values.clusterDomain }}
 
-      # Orchestrator plugins
-      #- package: 'oci://registry.access.redhat.com/rhdh/red-hat-developer-hub-backstage-plugin-orchestrator:{{ "{{" }}inherit{{ "}}" }}'
-      #  disabled: false
-      #  pluginConfig:
-      #    dynamicPlugins:
-      #      frontend:
-      #        red-hat-developer-hub.backstage-plugin-orchestrator:
-      #          appIcons:
-      #          - importName: OrchestratorIcon
-      #            name: orchestratorIcon
-      #          dynamicRoutes:
-      #          - importName: OrchestratorPage
-      #            menuItem:
-      #              icon: orchestratorIcon
-      #              text: Orchestrator
-      #              textKey: menuItem.orchestrator
-      #            path: /orchestrator
-      #          entityTabs:
-      #          - path: /workflows
-      #            title: Workflows
-      #            titleKey: catalog.entityPage.workflows.title
-      #            mountPoint: entity.page.workflows
-      #          mountPoints:
-      #          - mountPoint: entity.page.workflows/cards
-      #            importName: OrchestratorCatalogTab
-      #            config:
-      #              layout:
-      #                gridColumn: 1 / -1
-      #              if:
-      #                anyOf:
-      #                - IsOrchestratorCatalogTabAvailable
-      #- package: 'oci://registry.access.redhat.com/rhdh/red-hat-developer-hub-backstage-plugin-orchestrator-backend:{{ "{{" }}inherit{{ "}}" }}'
-      #  disabled: false
-      #  dependencies:
-      #    - ref: sonataflow
-      #- package: 'oci://registry.access.redhat.com/rhdh/red-hat-developer-hub-backstage-plugin-scaffolder-backend-module-orchestrator:{{ "{{" }}inherit{{ "}}" }}'
-      #  disabled: false
-      #- package: 'oci://registry.access.redhat.com/rhdh/red-hat-developer-hub-backstage-plugin-orchestrator-form-widgets:{{ "{{" }}inherit{{ "}}" }}'
-      #  disabled: false
-
       # Notification plugins (required by orchestrator workflows)
       - package: oci://ghcr.io/redhat-developer/rhdh-plugin-export-overlays/backstage-plugin-notifications:pr_4701__0.5.20__coverage
         enabled: true
@@ -361,32 +264,6 @@ data:
         enabled: true
       - package: oci://ghcr.io/redhat-developer/rhdh-plugin-export-overlays/backstage-plugin-signals-backend:pr_4701__0.3.18
         enabled: true
-
-      # SonarQube plugin
-      #- package: 'oci://ghcr.io/redhat-developer/rhdh-plugin-export-overlays/backstage-community-plugin-sonarqube:bs_1.45.3__0.21.0'
-      #  disabled: false
-      #- package: 'oci://ghcr.io/redhat-developer/rhdh-plugin-export-overlays/backstage-community-plugin-sonarqube-backend:bs_1.45.3__0.15.0'
-      #  disabled: false
-
-      # Scorecards plugin (frontend + backend)
-      #- package: oci://ghcr.io/redhat-developer/rhdh-plugin-export-overlays/red-hat-developer-hub-backstage-plugin-scorecard:bs_1.42.5__1.0.0!red-hat-developer-hub-backstage-plugin-scorecard
-      #  disabled: false
-      #  pluginConfig:
-      #    dynamicPlugins:
-      #      frontend:
-      #        red-hat-developer-hub.backstage-plugin-scorecard:
-      #          mountPoints:
-      #            - mountPoint: entity.page.overview/cards
-      #              importName: EntityScorecardContent
-      #              config:
-      #                layout:
-      #                  gridColumnEnd: span 4
-      #                if:
-      #                  allOf:
-      #                    - isKind: component
-      #                    - hasAnnotation: jira/project-key
-      #- package: oci://ghcr.io/redhat-developer/rhdh-plugin-export-overlays/red-hat-developer-hub-backstage-plugin-scorecard-backend:bs_1.42.5__1.0.0!red-hat-developer-hub-backstage-plugin-scorecard-backend
-      #  disabled: false
 
       # Kuadrant Backend
       - package: "@kuadrant/kuadrant-backstage-plugin-backend-dynamic@{{ .Values.kuadrant.pluginVersion }}"
