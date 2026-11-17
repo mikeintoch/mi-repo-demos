@@ -3,12 +3,12 @@ kind: Subscription
 metadata:
   labels:
     operators.coreos.com/rhcl-operator.openshift-operators: ''
-  name: rhcl-operator
+  name: rhcl-operator.v1.5.0
   namespace: {{ .Values.kuadrant.operatorNamespace }}
   annotations:
     argocd.argoproj.io/sync-wave: "0"
 spec:
-  channel: stable
+  channel: stable-1.5
   installPlanApproval: Automatic
   name: rhcl-operator
   source: redhat-operators
