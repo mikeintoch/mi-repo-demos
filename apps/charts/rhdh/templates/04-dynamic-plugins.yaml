@@ -15,39 +15,39 @@ data:
     plugins:
         # Disable the quickstart plugin to avoid distracting people on initial sign-in
       - package: oci://ghcr.io/redhat-developer/rhdh-plugin-export-overlays/red-hat-developer-hub-backstage-plugin-quickstart:bs_1.54.9__2.2.0
-        disabled: true
+        enabled: false
 
         #Enable github plugins
       - package: oci://ghcr.io/redhat-developer/rhdh-plugin-export-overlays/backstage-plugin-catalog-backend-module-github:pr_4701__0.13.5
-        disabled: false
+        enabled: true
       - package:: oci:ghcr.io/redhat-developer/rhdh-plugin-export-overlays/backstage-plugin-scaffolder-backend-module-github:pr_4701__0.9.13
-        disabled: false
+        enabled: true
       
       # Bulk import plugins
       - package: oci://ghcr.io/redhat-developer/rhdh-plugin-export-overlays/red-hat-developer-hub-backstage-plugin-bulk-import-backend:bs_1.54.9__9.2.2
-        disabled: false
+        enabled: true
       - package: oci://ghcr.io/redhat-developer/rhdh-plugin-export-overlays/red-hat-developer-hub-backstage-plugin-bulk-import:bs_1.54.9__9.2.2
-        disabled: false
+        enabled: true
 
       # Kubernetes
       - package: oci://ghcr.io/redhat-developer/rhdh-plugin-export-overlays/backstage-plugin-kubernetes-backend:pr_4701__0.21.10
-        disabled: false
+        enabled: true
       - package: oci://ghcr.io/redhat-developer/rhdh-plugin-export-overlays/backstage-plugin-kubernetes:pr_4701__0.12.22__coverage
-        disabled: false
+        enabled: true
       - package: oci://ghcr.io/redhat-developer/rhdh-plugin-export-overlays/backstage-community-plugin-topology:bs_1.54.9__3.0.7
-        disabled: false
+        enabled: true
 
       # Keycloak
       - package: oci://ghcr.io/redhat-developer/rhdh-plugin-export-overlays/backstage-community-plugin-catalog-backend-module-keycloak:bs_1.54.9__3.23.1
-        disabled: false
+        enabled: true
 
       # ArgoCD
       - package: oci://ghcr.io/redhat-developer/rhdh-plugin-export-overlays/roadiehq-scaffolder-backend-argocd:bs_1.54.9__1.9.0
-        disabled: false
+        enabled: true
       - package: oci://ghcr.io/redhat-developer/rhdh-plugin-export-overlays/backstage-community-plugin-argocd-backend:bs_1.54.9__1.7.2
-        disabled: false
+        enabled: true
       - package: oci://ghcr.io/redhat-developer/rhdh-plugin-export-overlays/backstage-community-plugin-argocd:bs_1.54.9__3.1.3
-        disabled: false
+        enabled: true
         pluginConfig:
           dynamicPlugins:
             frontend:
@@ -76,7 +76,7 @@ data:
                         allOf:
                           - isArgocdConfigured
       # Ansible plugins
-      - disabled: false
+      - enabled: true
         package: 'oci://registry.redhat.io/ansible-automation-platform/automation-portal:2.3.1!ansible-plugin-backstage-rhaap'
         pluginConfig:
           dynamicPlugins:
