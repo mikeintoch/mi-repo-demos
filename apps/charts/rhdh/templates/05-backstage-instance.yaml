@@ -42,6 +42,6 @@ spec:
           spec:
             automountServiceAccountToken: true
             volumes:
-              - name: rhdh-dynamic-plugins-pvc
+              - name: dynamic-plugins-root
                 persistentVolumeClaim:
                   claimName: rhdh-dynamic-plugins-pvc
