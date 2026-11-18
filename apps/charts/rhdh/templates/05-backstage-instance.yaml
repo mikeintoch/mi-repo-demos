@@ -41,6 +41,8 @@ spec:
         template:
           spec:
             automountServiceAccountToken: true
+            imagePullSecrets:
+              - name: 6340056-mdelgadi-pull-secret
             volumes:
               - $patch: replace
                 name: dynamic-plugins-root
