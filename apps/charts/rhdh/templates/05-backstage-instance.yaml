@@ -43,6 +43,13 @@ spec:
             automountServiceAccountToken: true
             volumes:
               - name: dynamic-plugins-root
-                ephemeral: null
-                persistentVolumeClaim:
-                  claimName: rhdh-dynamic-plugins-pvc
+                ephemeral:
+                  volumeClaimTemplate:
+                    metadata:
+                      name: rhdh-dynamic-plugins-pvc
+                    spec:
+                      accessModes:
+                        - ReadWriteOnce
+                      resources:
+                        requests:
+                          storage: 15Gi
