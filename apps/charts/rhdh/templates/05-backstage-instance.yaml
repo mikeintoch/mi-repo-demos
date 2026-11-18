@@ -41,3 +41,8 @@ spec:
         template:
           spec:
             automountServiceAccountToken: true
+            volumes:
+              - $patch: replace
+                name: dynamic-plugins-root
+                persistentVolumeClaim:
+                  claimName: rhdh-dynamic-plugins-pvc
