@@ -50,4 +50,4 @@ spec:
               - name: instaññ-dynamic-plugins
                 env:
                   - name: SKOPEO_COPY_ARGS
-                    value: ""--insecure-policy"
+                    value: "--insecure-policy"
