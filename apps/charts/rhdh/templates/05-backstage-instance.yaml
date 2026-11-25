@@ -46,16 +46,3 @@ spec:
                 name: dynamic-plugins-root
                 persistentVolumeClaim:
                   claimName: rhdh-dynamic-plugins-pvc
-              - name: custom-registry-auth
-                secret:
-                  secretName: registry-redhat-auth
-                  items:
-                    - key: auth.json
-                      path: auth.json
-            initContainers:
-              - name: install-dynamic-plugins
-                volumeMounts:
-                  - name: custom-registry-auth
-                    mountPath: /opt/app-root/src/.config/containers
-                    subPath: auth.json
-                    readOnly: true
