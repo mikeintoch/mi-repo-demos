@@ -78,7 +78,6 @@ data:
       # Ansible plugins
       - enabled: true
         package: 'oci://registry.redhat.io/ansible-automation-platform/automation-portal:2.3.1!ansible-plugin-backstage-rhaap'
-        insecure: true
         pluginConfig:
           dynamicPlugins:
             frontend:
@@ -95,7 +94,6 @@ data:
       
       - enabled: true
         package: 'oci://registry.redhat.io/ansible-automation-platform/automation-portal:2.3.1!ansible-plugin-scaffolder-backend-module-backstage-rhaap'
-        insecure: true
         pluginConfig:
           dynamicPlugins:
             backend:

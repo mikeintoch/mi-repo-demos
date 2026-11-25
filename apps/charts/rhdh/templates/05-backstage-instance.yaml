@@ -46,3 +46,8 @@ spec:
                 name: dynamic-plugins-root
                 persistentVolumeClaim:
                   claimName: rhdh-dynamic-plugins-pvc
+            initContainers:
+              - name: instaññ-dynamic-plugins
+                env:
+                  - name: SKOPEO_COPY_ARGS
+                    value: ""--insecure-policy"
