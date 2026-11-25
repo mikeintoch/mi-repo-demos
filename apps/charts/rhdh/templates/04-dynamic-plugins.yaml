@@ -93,7 +93,7 @@ data:
                     path: /ansible
       
       - enabled: true
-        package: 'oci://registry.redhat.io/ansible-automation-platform/automation-portal:2.3.1!ansible-plugin-scaffolder-backend-module-backstage-rhaap'
+        package: 'oci://registry.redhat.io/ansible-automation-platform/automation-portal:2.2.12!ansible-plugin-scaffolder-backend-module-backstage-rhaap'
         pluginConfig:
           dynamicPlugins:
             backend:
