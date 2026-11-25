@@ -21,10 +21,15 @@ spec:
       mountPath: /opt/app-root/etc
       configMaps:
         - name: rbac-policies
+      mountPath: /opt/app-root/src
+      configMaps:
+        - name: rhdh-registry-policy
     extraEnvs:
       envs:
         - name: NODE_TLS_REJECT_UNAUTHORIZED
           value: "0"
+        - name: REGISTRY_POLICY_PATH
+          value: /opt/app-root/etc/policy.json
       secrets:
         - name: rhdh-secrets
         - name: kubernetes-sa-token
@@ -46,8 +51,3 @@ spec:
                 name: dynamic-plugins-root
                 persistentVolumeClaim:
                   claimName: rhdh-dynamic-plugins-pvc
-            initContainers:
-              - name: install-dynamic-plugins
-                env:
-                  - name: SKOPEO_COPY_ARGS
-                    value: "--insecure-policy"
