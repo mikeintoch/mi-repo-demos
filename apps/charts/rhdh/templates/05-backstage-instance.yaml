@@ -30,7 +30,6 @@ spec:
         - name: kubernetes-sa-token
         - name: github-secrets
         - name: argocd-secrets
-        - name: rhdh-pull-secret
     replicas: 1
     route:
       enabled: true
