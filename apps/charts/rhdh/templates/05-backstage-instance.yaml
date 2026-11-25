@@ -50,7 +50,7 @@ spec:
                 configMap:
                   name: rhdh-registry-policy
             initContainers:
-              - name: dynamic-plugins-init
+              - name: install-dynamic-plugins
                 volumeMounts:
                   - name: registry-policy
                     mountPath: /etc/containers/policy.json
