@@ -21,15 +21,10 @@ spec:
       mountPath: /opt/app-root/etc
       configMaps:
         - name: rbac-policies
-      mountPath: /opt/app-root/src
-      configMaps:
-        - name: rhdh-registry-policy
     extraEnvs:
       envs:
         - name: NODE_TLS_REJECT_UNAUTHORIZED
           value: "0"
-        - name: REGISTRY_POLICY_PATH
-          value: /opt/app-root/etc/policy.json
       secrets:
         - name: rhdh-secrets
         - name: kubernetes-sa-token
@@ -51,3 +46,13 @@ spec:
                 name: dynamic-plugins-root
                 persistentVolumeClaim:
                   claimName: rhdh-dynamic-plugins-pvc
+              - name: registry-policy
+                configMap:
+                  name: rhdh-registry-policy
+            initContainers:
+              - name: dynamic-plugins-init
+                volumeMounts:
+                  - name: registry-policy
+                    mountPath: /etc/containers/policy.json
+                    subPath: policy.json
+                    readOnly: true
