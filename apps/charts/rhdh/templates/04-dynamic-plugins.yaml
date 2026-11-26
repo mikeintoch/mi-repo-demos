@@ -40,6 +40,8 @@ data:
       # Keycloak
       - package: ref://backstage-community-plugin-catalog-backend-module-keycloak
         enabled: true
+      - package: oci://quay.io/rhdh/backstage-community-plugin-auth-backend-module-keycloak-provider:{{inherit}}
+        enabled: true
 
       # ArgoCD
       - package: oci://ghcr.io/redhat-developer/rhdh-plugin-export-overlays/roadiehq-scaffolder-backend-argocd:bs_1.54.9__1.9.0
