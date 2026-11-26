@@ -266,12 +266,12 @@ data:
         enabled: true
 
       # Kuadrant Backend
-      - package: "@kuadrant/kuadrant-backstage-plugin-backend-dynamic@{{ .Values.kuadrant.pluginVersion }}"
+      - package: "@kuadrant/kuadrant-backstage-plugin-backend-dynamic"
         integrity: {{ .Values.kuadrant.backendCheckSum }}
         enabled: true
 
       # Kuadrant Frontend
-      - package: "@kuadrant/kuadrant-backstage-plugin-frontend@{{ .Values.kuadrant.pluginVersion }}"
+      - package: "@kuadrant/kuadrant-backstage-plugin-frontend"
         integrity: {{ .Values.kuadrant.frontendCheckSum }}
         enabled: true
         pluginConfig:
