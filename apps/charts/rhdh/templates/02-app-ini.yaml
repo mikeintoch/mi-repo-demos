@@ -56,7 +56,8 @@ data:
         keycloak:
           production:
             prompt: auto
-            metadataUrl: https://sso.{{ .Values.clusterDomain }}/realms/{{ .Values.keycloak.realmName }}/.well-known/openid-configuration
+            baseUrl: https://sso.{{ .Values.clusterDomain }}/
+            realm: {{ .Values.keycloak.realmName }}
             clientId: ${AUTHENTICATION_OIDC_CLIENT_ID}
             clientSecret: ${AUTHENTICATION_OIDC_CLIENT_SECRET}
             signIn:
