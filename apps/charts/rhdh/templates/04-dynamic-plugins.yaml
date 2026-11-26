@@ -38,7 +38,7 @@ data:
         enabled: true
 
       # Keycloak
-      - package: ref://backstage-community-plugin-catalog-backend-module-keycloak
+      - package: oci://ghcr.io/redhat-developer/rhdh-plugin-export-overlays/backstage-community-plugin-catalog-backend-module-keycloak:bs_1.54.9__3.23.1
         enabled: true
       - package: oci://ghcr.io/redhat-developer/rhdh-plugin-export-overlays/backstage-community-plugin-auth-backend-module-keycloak-provider:bs_1.54.9__0.6.0
         enabled: true
