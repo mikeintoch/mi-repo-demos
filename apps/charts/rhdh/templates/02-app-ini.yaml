@@ -82,9 +82,9 @@ data:
           default:
             baseUrl: https://sso.{{ .Values.clusterDomain }}
             realm: {{ .Values.keycloak.realmName }}
-            loginRealm: {{ .Values.keycloak.realmName }}
-            clientId: ${AUTHENTICATION_OIDC_CLIENT_ID}
-            clientSecret: ${AUTHENTICATION_OIDC_CLIENT_SECRET}
+            loginRealm: backstage
+            clientId: backstage-plugin
+            clientSecret: x8t7cYQnSYF8KZciSqD1y4NAZtCL9A3f
             schedule:
               frequency: { minutes: 2}
               timeout: { minutes: 1}
