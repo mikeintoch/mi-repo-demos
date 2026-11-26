@@ -47,15 +47,15 @@ data:
       cors:
         origin: https://rhdh.{{ .Values.clusterDomain }}
 
-    signInPage: oidc
+    signInPage: keycloak
     auth:
       session:
         secret: ${BACKEND_SECRET}
       environment: production
       providers:
-        oidc:
+        keycloak:
           production:
-            prompt: login
+            prompt: auto
             metadataUrl: https://sso.{{ .Values.clusterDomain }}/realms/{{ .Values.keycloak.realmName }}/.well-known/openid-configuration
             clientId: ${AUTHENTICATION_OIDC_CLIENT_ID}
             clientSecret: ${AUTHENTICATION_OIDC_CLIENT_SECRET}
