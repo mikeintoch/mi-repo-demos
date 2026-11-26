@@ -26,5 +26,5 @@ tempo:
   namespace: tempo
 
 global:
-  clusterApi: https://api.ocp.zxn6s.sandbox2576.opentlc.com:6443
-  clusterDomain: apps.ocp.zxn6s.sandbox2576.opentlc.com
+  clusterApi: https://api.ocp.7h7lz.sandbox1476.opentlc.com:6443
+  clusterDomain: apps.ocp.7h7lz.sandbox1476.opentlc.com
